@@ -1,4 +1,4 @@
-<title>operators_practise</tiitle>
+<title>operators_practise</title>
 /*
 '1' + 2
 prediction:3
