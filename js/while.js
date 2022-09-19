@@ -39,7 +39,7 @@
 
 
      if (allCones === 0)  {console.log("Yay! I sold them all!")}
-        else{ console.log("Woops, we have more...")}
+        else { console.log("Woops, we have more...")}
 
 })();
 
