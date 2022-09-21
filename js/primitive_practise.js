@@ -1,4 +1,4 @@
-<tilte>Primitive type Exercise</title>
+<title>Primitive type Exercise</title>
 /* 99.9 -> number
 
 "false" -> string
