@@ -78,3 +78,39 @@ function shuffle(array) {
 let arr = [2, 11, 37, 42];
 shuffle(arr);
 console.log(arr);
+
+//question 5
+
+// Create a function to sort the array from lowest to highest. Make sure the function accepts an array and returns an array.
+// 2. Write a function that returns the reading status of each of the following books:
+    let library = [
+        {
+            author: 'Bill Gates',
+            title: 'The Road Ahead',
+            readingStatus: true
+        },
+        {
+            author: 'Steve Jobs',
+            title: 'Walter Isaacson',
+            readingStatus: true
+        },
+        {
+            author: 'Suzanne Collins',
+            title:  'Mockingjay: The Final Book of The Hunger Games',
+            readingStatus: false
+        }];
+
+function sorting (Array) {
+    Array.forEach(function (arr) {
+        console.log(`The reading status for ${this.library} is ${this.readingStatus}`);
+    })
+
+}
+sorting(library)
+
+
+
+
+
+
+
