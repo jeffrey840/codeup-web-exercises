@@ -19,6 +19,7 @@ h1 {
 }
 
 h2 {
+    text-align: center;
     color: purple;
     text-decoration: underline;
     text-underline-color: purple;
@@ -69,9 +70,11 @@ td {
     padding: 10px;
 }
 
-ul, ol {
+.middle {
     color: purple;
-    list-style: square;
+    list-style-position: inside;
+    text-align: center;
+    font-size: large;
 }
 
 .text-center, .intro, .val {
