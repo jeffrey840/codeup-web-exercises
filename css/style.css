@@ -1,3 +1,88 @@
+
+/*.fancy-header {*/
+/*    color: purple;*/
+/*}*/
+
+
+body {
+    font-family: monospace, sans-serif;
+    background-image: url("/img/hex-675576_1280.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100%;
+}
+
+
+h1 {
+    text-align: center;
+    color: purple;
+}
+
+h2 {
+    color: purple;
+    text-decoration: underline;
+    text-underline-color: purple;
+}
+
 .fancy-header {
     color: purple;
+    text-decoration: purple;
+    text-underline-color: purple;
+}
+
+#our-product {
+    padding-left: 80px;
+}
+
+table, em {
+    color: black;
+}
+
+
+th {
+    text-decoration: purple;
+}
+
+tr {
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+}
+
+ul, ol {
+    color: black;
+    list-style: square;
+}
+
+.text-center {
+    text-align: center;
+}
+
+p {
+    color: purple;
+    position: center;
+}
+
+a:link {
+    color: orange;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: lightgreen;
+}
+
+a:active {
+    color: azure;
+}
+
+.round {
+    border-radius: 50%;
+
 }
