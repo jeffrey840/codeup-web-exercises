@@ -1,5 +1,100 @@
-div a {
-    width: 200px;
-    display: flex;
-    justify-content: center;
+body {
+    margin: 0;
 }
+.wrapper {
+    display: grid;
+    padding: 1em;
+    grid-template-areas:
+    "button"
+    "header"
+    "nav"
+    "img"
+    "main"
+    "section"
+    "footer";
+}
+
+button {
+    grid-area: button;
+    background: #D6FEFE;
+    padding: 1.5em 0;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+}
+
+nav {
+    grid-area: nav;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    background: lightgrey;
+    display: block;
+    text-align: center;
+    padding: 1em 0;
+    margin: 1em 0;
+}
+
+img {
+    width: 100%;
+    grid-area: img;
+}
+
+main {
+    grid-area: main;
+}
+
+section {
+    grid-area: section;
+}
+footer {
+    grid-area: footer;
+    display: flex;
+    align-items: baseline;
+}
+footer p {
+    margin-right: auto;
+}
+footer span {
+    margin: .4em;
+    font-size: 1.3em;
+}
+@media screen and (min-width: 768px) {
+    /* remove top button */
+    button {
+        display: none;
+    }
+    /* change layout */
+    .wrapper {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+        "header nav"
+        "img img"
+        "main section"
+        "footer footer";
+        align-items: baseline;
+        max-width: 1300px;
+        margin: auto;
+        grid-gap: 3em;
+    }
+    h1 {
+        text-align: left;
+    }
+    /* change links */
+    nav ul {
+        display: flex;
+        justify-content: flex-end;
+    }
+    nav a {
+        background: none;
+        margin-left: 2em;
+    }}
+
