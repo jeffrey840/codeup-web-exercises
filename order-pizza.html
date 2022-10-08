@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,55 +17,57 @@
 	<link rel="stylesheet" href="css/custom.css">
 
 </head>
+
 <body>
 <!--start Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="#">Pizza World</a>
 
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+	<div class="container-fluid justify-content-center justify-content-md-between">
 
-		<!--order online and menu start-->
-		<ul class="navbar-nav mr-auto">
+		<div class="d-flex my-2 my-sm-0">
+
+			<a class="navbar-brand me-2 mb-1 d-flex justify-content-center" href="#">
+				PIZZA WORLD
+			</a>
+
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+				<div class="navbar-nav">
+					<a class="nav-link"  href="#">Order Online</a>
+					<a class="nav-link" href="#">Menu</a>
+				</div>
+
+				<div class="form-row ">
+					<input type="text" class="form-control" id="inputAddress" placeholder="Zipcode">
+				</div>
+
+				<button type="button" class="btn btn-outline-primary">Search stores near you</button>
+
+			</div>
+
+		</div>
+
+		<ul class="navbar-nav flex-row">
 			<li class="nav-item">
-				<a class="nav-link" href="#">Order online <span class="sr-only"></span></a>
+				<a class="btn btn-light" href="#"><i class="fas fa-user"></i> Sign up!</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Menu</a>
-			</li>
-
 		</ul>
-		<!--order online and menu end-->
-
-		<!--zip code and search store start-->
-		<form class="form-inline">
-			<input class="form-control mr-sm-2" type="search" placeholder="Zip code" aria-label="Search">
-			<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search stores near you!</button>
-		</form>
-		<!--zip code and search store start-->
-
-		<!--user icon and sign up start-->
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item">
-				<a class="btn btn-light" href="#"><i class="fas fa-user"></i> Sign up</a>
-			</li>
-		</ul>
-		<!--user icon and sign up end-->
 
 	</div>
 
 </nav>
+
 <!--end Navbar-->
 
 <!--start Jumbotron-->
+
 <!--jumbotron is a unique class and is linked to css-->
-<header class="container">
-	<div class="jumbotron jumbotron-fluid d-none d-md-block">
-		<h1 class="display-4 bg-white ">Welcome to Pizza World</h1>
-	</div>
-</header>
+
+<!--<header class="container">-->
+<!--	<div class="jumbotron jumbotron-fluid d-none d-md-block">-->
+<!--		<h1 class="display-4 bg-white ">Welcome to Pizza World</h1>-->
+<!--	</div>-->
+<!--</header>-->
 
 
 

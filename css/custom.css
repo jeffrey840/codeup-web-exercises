@@ -1,9 +1,15 @@
 
-.jumbotron {
-    background-image: url("../img/pizza.png");
-    text-align: center;
-}
-.jumbotron h1 {
-    background-color: white;
-    opacity: .5;
+/*.jumbotron {*/
+/*    background-image: url("../img/pizza.png");*/
+/*    text-align: center;*/
+/*}*/
+/*.jumbotron h1 {*/
+/*    background-color: white;*/
+/*    opacity: .5;*/
+/*}*/
+
+
+
+* {
+    border:red 1px solid;
 }
