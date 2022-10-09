@@ -12,15 +12,26 @@
 	<title>HTML Practice bootstrap grid</title>
   <style>
     * {
-      border:red 1px solid;
+        border: red 1px solid;
+    }
+
+    .jumbotron{
+        background-image: url("Img/pizza.png");
+        height: 346px;
+        background-size: cover;
+        width: 80%;
     }
   </style>
 </head>
 
+
 <body>
 <!--insert boootstrap here-->
 
-<button type="button" class="btn btn-outline-primary container">Primary</button>
+<div class="container jumbotron d-none d-sm-block py-5 px-0 d-flex">
+	<h1 class="display-3 position-relative top-50 start-50 translate-middle text-center bg-light bg-opacity-75 w-100">
+		Welcome to Pizza World!</h1>
+</div>
 
 <!--do not insert bootstrap below here-->
 

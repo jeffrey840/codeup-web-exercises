@@ -1,12 +1,10 @@
 
-/*.jumbotron {*/
-/*    background-image: url("../img/pizza.png");*/
-/*    text-align: center;*/
-/*}*/
-/*.jumbotron h1 {*/
-/*    background-color: white;*/
-/*    opacity: .5;*/
-/*}*/
+.jumbotron{
+    background-image: url("../Img/pizza.png");
+    height: 346px;
+    background-size: cover;
+
+}
 
 
 
