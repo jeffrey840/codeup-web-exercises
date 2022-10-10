@@ -33,12 +33,22 @@
 <ul class="nav nav-tabs" id="myTab" role="tablist">
 
 	<li class="nav-item" role="presentation">
-		<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+		<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+
+				<span class="badge bg-secondary rounded-pill">1</span>
+				Size and crust
+
+		</button>
 	</li>
 
 
 	<li class="nav-item" role="presentation">
-		<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+		<button class="nav-link nav-item" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
+
+				<span class="badge bg-secondary rounded-pill">2</span>
+				Cheese and Sauce
+
+		</button>
 	</li>
 <!-- id="profile-tab" data-bs-target="#profile"	aria-controls="profile"-->
 
@@ -46,10 +56,153 @@
 
 <div class="tab-content" id="myTabContent">
 
-	<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">HOME CONTENTS</div>
+	<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+		<!--start Card 1-->
+		<div class="card text-left">
+			<div class="card-header bg-primary text-white">
+				Choose size and crust
+			</div>
+			<div class="card-body">
+				<div class="card mb-4">
+					<div class="card-header">
+						Hand Tossed
+					</div>
+
+					<!--radio buttons for 'hand tossed' start-->
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+						<li class="list-group-item">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="Radios1" value="small">
+								<label class="form-check-label" for="Radios1">
+									Small (10")
+								</label>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="Radios2" value="medium">
+								<label class="form-check-label" for="Radios2">
+									Medium (12")
+								</label>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="Radios3" value="large">
+								<label class="form-check-label" for="Radios3">
+									Large (14")
+								</label>
+							</div>
+						</li>
+					</ul>
+					<!--radio buttons for 'hand tossed' end-->
+
+				</div>
+				<div class="card">
+					<div class="card-header">
+						Crispy Thin
+					</div>
+
+					<!--radio buttons for 'crispy thin' start-->
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
+						<li class="list-group-item">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="Radios" id="Radios4" value="small">
+								<label class="form-check-label" for="Radios4">
+									Small (10")
+								</label>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="Radios" id="Radios5" value="medium">
+								<label class="form-check-label" for="Radios5">
+									Medium (12")
+								</label>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="Radios" id="Radios6" value="large">
+								<label class="form-check-label" for="Radios6">
+									Large (14")
+								</label>
+							</div>
+						</li>
+					</ul>
+					<!--radio buttons for 'crispy thin' end-->
+
+				</div>
+			</div>
+			<div class="card-footer text-muted text-right">
+				<a href="#nav-home" class="btn btn-primary">Next Step</a>
+			</div>
+		</div>
+		<!--end Card 1-->
+
+	</div>
 
 
-	<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">PROFILE CONTENTS</div>
+	<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+		<!--start Card 2-->
+		<div class="card text-left">
+			<div class="card-header bg-primary text-white">
+				Choose cheese and sauce
+			</div>
+			<div class="card-body">
+				<div class="card mb-4">
+					<div class="card-header">
+						Cheese
+					</div>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">How much?</li>
+						<li class="list-group-item">
+							<select class="form-control form-control-sm">
+								<option>Light</option>
+								<option>Normal</option>
+								<option>Extra</option>
+								<option>Double</option>
+							</select>
+						</li>
+					</ul>
+				</div>
+				<div class="card">
+					<div class="card-header">
+						Sauce
+					</div>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">What kind?</li>
+						<li class="list-group-item">
+							<select class="form-control form-control-sm">
+								<option>Tomato Sauce</option>
+								<option>Marinara Sauce</option>
+								<option>BBQ Sauce</option>
+								<option>Alredo Sauce</option>
+							</select>
+						</li>
+						<li class="list-group-item">How much?</li>
+						<li class="list-group-item">
+							<select class="form-control form-control-sm">
+								<option>Light</option>
+								<option>Normal</option>
+								<option>Extra</option>
+							</select>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="card-footer text-muted text-right">
+				<a href="#" class="btn btn-primary">Previous Step</a>
+				<a href="#" class="btn btn-primary">Next Step</a>
+			</div>
+		</div>
+		<!--end Card 2-->
+
+	</div>
 <!--	id="profile" and aria-labelledby="profile-tab"  -->
 </div>
 
