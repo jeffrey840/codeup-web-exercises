@@ -2,7 +2,9 @@
     border: red 1px solid;
 }
 
-hr.new5 {
-    border: 10px solid darkgreen;
-    border-radius: 5px;
+
+#greenLine {
+
+    background-image: linear-gradient(#95aa76, #a0b384); height: 12px;
 }
+
