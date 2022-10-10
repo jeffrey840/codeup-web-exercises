@@ -1,0 +1,8 @@
+* {
+    border: red 1px solid;
+}
+
+hr.new5 {
+    border: 10px solid darkgreen;
+    border-radius: 5px;
+}
