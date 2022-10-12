@@ -34,17 +34,49 @@ body {
     margin: auto 0;
 }
 
-#icon-1 {
+.icon-1 {
     background-color: var(--color-red);
 }
-#icon-2 {
+.icon-2 {
     background-color: var(--color-orange-ish);
 }
-#icon-3 {
+.icon-3 {
     background-color: var(--color-green);
 }
-#icon-4 {
+.icon-4 {
     background-color: var(--color-teal);
 }
 
+.dk-text {
+    color:black;
+}
 
+.img-pd {
+    border: 5px solid var(--color-dark-grey);
+    padding: 0;
+}
+
+ul
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--color-light-grey);
+}
+
+li {
+    padding: 0;
+    background-color: var(--color-light-grey);
+}
+
+.card {
+    background-color: var(--color-light-grey);
+    border: none;
+    margin: 15px;
+}
+
+.grey-bg {
+    background-color: var(--color-light-grey);
+    padding: 10px;
+    border: none;
+}
