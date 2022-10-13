@@ -6,13 +6,16 @@
 </head>
 <body>
 <section>
-<!--    button 1 start-->
+<!--    button for h1 header start-->
 	<div>
-        <input type="button" value="Modify H1 Header" id="header-btn">
+        <input type="button" value="change h1 header" id="header-btn">
 		<h1 id="main-header">Hello World!</h1>
 	</div>
-<!--    button1 end-->
+<!--    button for h1 header end-->
 
+<!--	unordered list start-->
+	<div>
+		<input type="button" value="change lists items" id="li-btn">
 	<ul>
 		<li data-dbid="1">Item 1</li>
 		<li data-dbid="2">Item 2</li>
@@ -20,9 +23,20 @@
 		<li data-dbid="4">Item 4</li>
 		<li data-dbid="5">Item 5</li>
 	</ul>
+	</div>
+	<!--	unordered list end-->
 
+
+	<!-- Button for H2 sub-header start-->
+	<div>
+	<input type="button" value="change h2 header" id="sub-head-btn">
 	<h2 id="sub-header">Hello Again.</h2>
+	</div>
+	<!-- Button for H2 sub-header end-->
 
+<!--	button for paragraph start-->
+	<div>
+		<input type="button" value="Modify Paragraph" id="sub-para-btn">
 	<p class="sub-paragraph">
 		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 		eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -32,12 +46,13 @@
 		pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 		culpa qui officia deserunt mollit anim id est laborum.
 	</p>
-
+	</div>
+<!--button for paragraph end-->
 </section>
 <script>
 	(function () {
 		"use strict";
-		// button1
+		// H1 button
 		document.getElementById("header-btn").addEventListener("click", function (event) {
 
 			// TODO: Uncomment next line and get the main header element by id
@@ -47,11 +62,19 @@
 
 		});
 
+		//H2 button
+		document.getElementById("sub-head-btn").addEventListener("click", function () {
 
 		// TODO: Uncomment the next line and get the sub header element by id
 		var subHeader = document.getElementById('sub-header');
 		// TODO: Set the text color of subHeader to blue
 		subHeader.style.color = 'blue';
+
+		});
+
+		//unordered lists button
+		document.getElementById("li-btn").addEventListener("click", function (event) {
+
 		// TODO: Uncomment the next line and get all list items
 		var listItems = document.getElementsByTagName("li");
 		// TODO: Set text color on every other list item to grey
@@ -66,10 +89,18 @@
 				listItems[i].style.color = "blue"
 			}
 		}
+		});
+
+		//paragraph button
+		document.getElementById("sub-para-btn").addEventListener("click", function () {
+
 		// TODO: Uncomment the next line and get all elements with class name sub-paragraph
 		var subParagraphs = document.getElementsByClassName('sub-paragraph');
 		// TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
 		subParagraphs[0].innerText = "Mission Accomplished"
+
+		});
+
 	})();
 </script>
 </body>
