@@ -1,11 +1,11 @@
 // # JavaScript Review
-//
+
 // ## **1. I would appreciate a recap on callback functions. Especially in situations like:
 // 	```javascript
 // someArray.forEach(callbackFunction(element){function definition})
 // ```
 //
-//
+
 // #### callback functions
 // - a function that gets passed as an _argument_ to another function
 // - Methods (like _forEach_) we are not having to define, because those methods have already been created for us
@@ -285,3 +285,4 @@
 //
 //
 // ```
+
