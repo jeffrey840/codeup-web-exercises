@@ -95,23 +95,23 @@
 // ### **Nested Objects**
 //
 // ```javascript
-//     let countries = {
-//         Guatemala: {
-//             capital: 'Guatemala City',
-//             location: 'Central America',
-//             population: 16.86
-//         },
-//         Denmark: {
-//             capital: 'Copenhagen',
-//             location: 'Europe',
-//             population: 5.83
-//         },
-//         SouthKorea: {
-//           capital: 'Seoul',
-//           location: 'East Asia',
-//           population:  51.78
-//         }
-//     }
+    let countries = {
+        Guatemala: {
+            capital: 'Guatemala City',
+            location: 'Central America',
+            population: 16.86
+        },
+        Denmark: {
+            capital: 'Copenhagen',
+            location: 'Europe',
+            population: 5.83
+        },
+        SouthKorea: {
+          capital: 'Seoul',
+          location: 'East Asia',
+          population:  51.78
+        }
+    }
 // ```
 //
 // #### Accessing Denmark's capital, Guatemala's population, and southKorea's location:
@@ -135,7 +135,21 @@
 //  - Guatemala location
 //  - South Korea capital
 // ```
-//
+
+function info(countries) {
+	let capitalDenmark =  countries.Denmark.capital;
+    console.log(capitalDenmark); // Copenhagen
+
+    let popGuate = countries.Guatemala.location;
+    console.log(popGuate); // 16.86
+
+    let skLoc = countries.SouthKorea.capital;
+    console.log(skLoc); // East Asia
+
+}
+info(countries)
+
+
 // ### Object with nested array:
 //
 // 	**create the object**
