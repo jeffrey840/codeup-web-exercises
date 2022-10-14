@@ -154,12 +154,12 @@ info(countries)
 //
 // 	**create the object**
 // ```javascript
-// let sportsTeams = {
-//     basketball: ['spurs', 'lakers', 'bucks', 'rockets'],
-//     soccer: ['bayern', 'manchester', 'real madrid', 'liverpool'],
-//     tennis: ['nadal, r', 'federer, r (retired)', 'williams, s', 'sharapova, m'],
-//     baseball: ['cubs', 'yankees', 'missions', 'red sox']
-// }
+let sportsTeams = {
+    basketball: ['spurs', 'lakers', 'bucks', 'rockets'],
+    soccer: ['bayern', 'manchester', 'real madrid', 'liverpool'],
+    tennis: ['nadal, r', 'federer, r (retired)', 'williams, s', 'sharapova, m'],
+    baseball: ['cubs', 'yankees', 'missions', 'red sox']
+}
 // ```
 //
 // **accessing items INSIDE an array INSIDE an object**
@@ -208,15 +208,22 @@ info(countries)
 // ```javascript
 // TODO: write a function that accepts the sportsTeam object and prints all baseball teams to the console
 // ```
-//
+for(i = 0; i< sportsTeams.baseball.length; i++){
+    console.log(sportsTeams.soccer[i] + " is my favorite team");
+}
+
+
 // 	```javascript
-// TODO: write a function that adds an additional team to the soccer array and to the tennis array
-// ```
+// // TODO: write a function that adds an additional team to the soccer array and to the tennis array
+//
 //
 // 	```javascript
 // TODO: BONUS: write a function that accepts the sportsTeam object and removes the last item in each of the arrays
 // ```
-// ___
+
+
+
+
 // ___
 // ## **5. could we go over for and while loops**
 //
