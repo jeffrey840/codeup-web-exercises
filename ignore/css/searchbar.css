@@ -1,35 +1,30 @@
-.search-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
+
+
+#searchbar{
+    margin-left: 15%;
+    padding:15px;
+    border-radius: 10px;
 }
 
-input {
-    font-size: 1rem;
+input[type=text] {
+    width: 30%;
+    -webkit-transition: width 0.15s ease-in-out;
+    transition: width 0.15s ease-in-out;
 }
 
-.user-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: .25rem;
-    margin-top: 1rem;
+/* When the input field gets focus,
+		change its width to 100% */
+input[type=text]:focus {
+    width: 70%;
 }
 
-.card {
-    border: 1px solid black;
-    background-color: white;
-    padding: .5rem;
+#list{
+    font-size: 1.5em;
+    margin-left: 90px;
 }
 
-.card > .header {
-    margin-bottom: .25rem;
+.animals{
+    display: list-item;
 }
 
-.card > .body {
-    font-size: .8rem;
-    color: #777;
-}
-
-.hide {
-    display: none;
-}
+/*g4g end*/
