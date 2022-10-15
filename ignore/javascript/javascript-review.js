@@ -215,14 +215,22 @@ for(i = 0; i< sportsTeams.baseball.length; i++){
 
 // 	```javascript
 // // TODO: write a function that adds an additional team to the soccer array and to the tennis array
-//
-//
+
+
 // 	```javascript
 // TODO: BONUS: write a function that accepts the sportsTeam object and removes the last item in each of the arrays
 // ```
 
+for(i = 0; i< sportsTeams.baseball.length; i++){
+    console.log(sportsTeams.soccer[i].pop);
+}
 
-
+// (function ()  {
+// sportsTeams.forEach(sport=>
+//     (sport.splice((sport.length-1), 1))?sport:false
+//     console.log(sportsTeams);
+// });
+// console.log(sportsTeams);
 
 // ___
 // ## **5. could we go over for and while loops**
