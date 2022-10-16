@@ -1,93 +1,158 @@
 
 
-#searchbar{
-    margin-left: 15%;
-    padding:15px;
-    border-radius: 10px;
-}
+/*#searchbar{*/
+/*    margin-left: 15%;*/
+/*    padding:15px;*/
+/*    border-radius: 10px;*/
+/*}*/
 
-input[type=text] {
-    width: 30%;
-    -webkit-transition: width 0.15s ease-in-out;
-    transition: width 0.15s ease-in-out;
-}
+/*input[type=text] {*/
+/*    width: 30%;*/
+/*    -webkit-transition: width 0.15s ease-in-out;*/
+/*    transition: width 0.15s ease-in-out;*/
+/*}*/
 
-/* When the input field gets focus,
-		change its width to 100% */
-input[type=text]:focus {
-    width: 70%;
-}
+/*!* When the input field gets focus,*/
+/*		change its width to 100% *!*/
+/*input[type=text]:focus {*/
+/*    width: 70%;*/
+/*}*/
 
-#list{
-    font-size: 1.5em;
-    margin-left: 90px;
-}
+/*#list{*/
+/*    font-size: 1.5em;*/
+/*    margin-left: 90px;*/
+/*}*/
 
-.animals{
-    display: list-item;
-}
+/*.animals{*/
+/*    display: list-item;*/
+/*}*/
 
-/*g4g end*/
+/*!*g4g end*!*/
 
 
-/* w3 */
+/*!* w3 *!*/
 
-/* Dropdown Button */
-.dropbtn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
+/*!* Dropdown Button *!*/
+/*.dropbtn {*/
+/*    background-color: #04AA6D;*/
+/*    color: white;*/
+/*    padding: 16px;*/
+/*    font-size: 16px;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+/*}*/
 
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
-}
+/*!* Dropdown button on hover & focus *!*/
+/*.dropbtn:hover, .dropbtn:focus {*/
+/*    background-color: #3e8e41;*/
+/*}*/
 
-/* The search field */
-#myInput {
+/*!* The search field *!*/
+/*#myInput {*/
+/*    box-sizing: border-box;*/
+/*    background-image: url('searchicon.png');*/
+/*    background-position: 14px 12px;*/
+/*    background-repeat: no-repeat;*/
+/*    font-size: 16px;*/
+/*    padding: 14px 20px 12px 45px;*/
+/*    border: none;*/
+/*    border-bottom: 1px solid #ddd;*/
+/*}*/
+
+/*!* The search field when it gets focus/clicked on *!*/
+/*#myInput:focus {outline: 3px solid #ddd;}*/
+
+/*!* The container <div> - needed to position the dropdown content *!*/
+/*.dropdown {*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*}*/
+
+/*!* Dropdown Content (Hidden by Default) *!*/
+/*.dropdown-content {*/
+/*    display: none;*/
+/*    position: absolute;*/
+/*    background-color: #f6f6f6;*/
+/*    min-width: 230px;*/
+/*    border: 1px solid #ddd;*/
+/*    z-index: 1;*/
+/*}*/
+
+/*!* Links inside the dropdown *!*/
+/*.dropdown-content a {*/
+/*    color: black;*/
+/*    padding: 12px 16px;*/
+/*    text-decoration: none;*/
+/*    display: block;*/
+/*}*/
+
+/*!* Change color of dropdown links on hover *!*/
+/*.dropdown-content a:hover {background-color: #f1f1f1}*/
+
+/*!* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) *!*/
+/*.show {display:block;}*/
+
+
+/*GH START*/
+body{
     box-sizing: border-box;
-    background-image: url('searchicon.png');
-    background-position: 14px 12px;
+    /*display: flex;*/
+    height: 100%;
+    width: 100%;
+    /*flex-wrap: wrap;*/
+    /*justify-content: space-around;*/
+    background-image: url("img/coffeebox.jpeg");
     background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 14px 20px 12px 45px;
-    border: none;
-    border-bottom: 1px solid #ddd;
+    background-size: cover;
+    font-family: 'Courier Prime', monospace;
+    color: antiquewhite;
+    padding: 10px;
 }
 
-/* The search field when it gets focus/clicked on */
-#myInput:focus {outline: 3px solid #ddd;}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Special Elite', cursive;
 }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
+h1 {
+    font-size:  300%;
+    text-align: center;
+    width: 100%;
+}
+
+#coffees {
+    display:flex;
+    flex-wrap: wrap;
+    order: 1;
+    width: 40%;
+
+
+}
+
+.inputs {
     position: absolute;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    border: 1px solid #ddd;
-    z-index: 1;
+    transform: translate(750px,100px);
+    text-align: center;
+    background-color: rgba(139,69,19,60%);
+    width: 40%;
+    height: 13em;
+    order: 2;
+    border: inset;
+    border-radius: 15px;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+.coffee {
+    /*text-align: center;*/
+    padding: 0 10px;
+    margin: 10px;
+    border: inset;
+    border-radius: 15px;
+    background-color: rgba(139,69,19,60%);
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+input, select {
+    background-color: saddlebrown;
+    color: antiquewhite;
+    border: inset;
+}
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
+/*GH END*/

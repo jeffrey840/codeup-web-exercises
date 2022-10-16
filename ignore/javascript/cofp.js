@@ -1,15 +1,17 @@
 "use strict"
 
+//build a div for all the classes
 function renderCoffee(coffee) {
-	var html = '<tr class="coffee">';
-	html += '<td>' + coffee.id + '</td>';
-	html += '<td>' + coffee.name + '</td>';
-	html += '<td>' + coffee.roast + '</td>';
-	html += '</tr>';
+	let html = '<div class="coffee">';
+	html += '<h3>' + coffee.name + '</h3>';
+	html += '<p>' + coffee.roast + '</p>';
+	html += '</div>';
 
 	return html;
 }
 
+// THis functions takes the above function and loops through it to add
+// all of our coffees to one line of text to place within the section
 function renderCoffees(coffees) {
 	var html = '';
 	for(var i = coffees.length - 1; i >= 0; i--) {
@@ -18,20 +20,31 @@ function renderCoffees(coffees) {
 	return html;
 }
 
-function updateCoffees(e) {
-	e.preventDefault(); // don't submit the form, we just want to update the data
-	var selectedRoast = roastSelection.value;
-	var filteredCoffees = [];
-	coffees.forEach(function(coffee) {
-		if (coffee.roast === selectedRoast) {
-			filteredCoffees.push(coffee);
-		}
-	});
-	tbody.innerHTML = renderCoffees(filteredCoffees);
+function coffeeSearch(){
+	let searchTerm = searchInput.value.toLowerCase();
+	if (coffeeList === null){
+		section.innerHTML = renderCoffees(coffees.filter(coffee => (roastSelection.value === 'all' || coffee.roast === roastSelection.value) && coffee.name.toLowerCase().includes(searchTerm)));
+	}
+	section.innerHTML = renderCoffees(coffeeList.filter(coffee => (roastSelection.value === 'all' || coffee.roast === roastSelection.value) && coffee.name.toLowerCase().includes(searchTerm)));
 }
 
+
+function addCoffee(){
+	const storeCoffee = {
+		id : coffees.length + 1,
+		name: document.querySelector('#suggestion-name').value,
+		roast: document.querySelector('#suggestion-roast').value
+	}
+	// Sends user input to be stored within the coffee list.
+	coffees.push(storeCoffee);
+	//local storage accepts a string, so we used the following to convert the
+	// the user input objects as a string that can be stored locally.  The string is
+	//then parsed to store it withing the array of coffees.
+	window.localStorage.setItem('userCoffee', JSON.stringify(coffees));
+	coffeeSearch(JSON.parse(localStorage.getItem('userCoffee')));
+}
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-var coffees = [
+let coffees = [
 	{id: 1, name: 'Light City', roast: 'light'},
 	{id: 2, name: 'Half City', roast: 'light'},
 	{id: 3, name: 'Cinnamon', roast: 'light'},
@@ -48,10 +61,28 @@ var coffees = [
 	{id: 14, name: 'French', roast: 'dark'},
 ];
 
-var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
+// var tbody = document.querySelector('#coffees');
+// var submitButton = document.querySelector('#submit');
+// var roastSelection = document.querySelector('#roast-selection');
+//
+// tbody.innerHTML = renderCoffees(coffees);
+//
+// submitButton.addEventListener('click', updateCoffees);
 
-tbody.innerHTML = renderCoffees(coffees);
+//new
+|
 
-submitButton.addEventListener('click', updateCoffees);
+//Sets the parsed item as to the coffeeList in order to display the addition on the page.
+const coffeeList = JSON.parse(localStorage.getItem('userCoffee'))
+
+//These are our selectors for our buttons, menus and inputs.
+let section = document.querySelector('#coffees');
+let submitButton = document.querySelector('#button');
+let roastSelection = document.querySelector('#roast-selection');
+let searchInput = document.querySelector('#coffeeSearch')
+// This is our if/else that prevents the page from displaying empty content when the list is defined as null.
+if (coffeeList === null) {
+	section.innerHTML = renderCoffees(coffees)
+} else {
+	section.innerHTML = renderCoffees(coffeeList);
+}
