@@ -1,29 +1,9 @@
 
 
 
-//g4g start
-
-// JavaScript code
-// function search_animal() {
-// 	let input = document.getElementById('searchbar').value
-// 	input=input.toLowerCase();
-// 	let x = document.getElementsByClassName('animals');
-//
-// 	for (i = 0; i < x.length; i++) {
-// 		if (!x[i].innerHTML.toLowerCase().includes(input)) {
-// 			x[i].style.display="none";
-// 		}
-// 		else {
-// 			x[i].style.display="list-item";
-// 		}
-// 	}
-// }
-
-//g4g end
-
 //GH START
-// "use strict"
-//
+"use strict"
+
 // // This is the functions that builds our div's for all the coffees.
 // function renderCoffee(coffee) {
 // 	let html = '<div class="coffee">';
@@ -109,6 +89,9 @@
 // submitButton.addEventListener('click', addCoffee);
 // searchInput.addEventListener("keyup", coffeeSearch)
 // roastSelection.addEventListener("change", coffeeSearch);
-//GH END
 
+// GH END
 
+// lookup
+
+submitButton.addEventListener('click', addCoffee);

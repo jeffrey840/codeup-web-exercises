@@ -1,6 +1,3 @@
-"use strict"
-
-//build a div for all the classes
 function renderCoffee(coffee) {
 	let html = '<div class="coffee">';
 	html += '<h3>' + coffee.name + '</h3>';
@@ -13,13 +10,15 @@ function renderCoffee(coffee) {
 // THis functions takes the above function and loops through it to add
 // all of our coffees to one line of text to place within the section
 function renderCoffees(coffees) {
-	var html = '';
-	for(var i = coffees.length - 1; i >= 0; i--) {
+	let html = '';
+	for (let i = coffees.length - 1; i >= 0; i--) {
 		html += renderCoffee(coffees[i]);
 	}
 	return html;
 }
 
+//This is the function that filters through our coffee array in order to match
+//the user search input.  It removes content that does not include any of the user input.
 function coffeeSearch(){
 	let searchTerm = searchInput.value.toLowerCase();
 	if (coffeeList === null){
@@ -27,8 +26,8 @@ function coffeeSearch(){
 	}
 	section.innerHTML = renderCoffees(coffeeList.filter(coffee => (roastSelection.value === 'all' || coffee.roast === roastSelection.value) && coffee.name.toLowerCase().includes(searchTerm)));
 }
-
-
+// This function is used to add user input for a suggested coffee and roast
+// and stores it as another variable that can be stored and pushed to our array of coffees.
 function addCoffee(){
 	const storeCoffee = {
 		id : coffees.length + 1,
@@ -43,6 +42,7 @@ function addCoffee(){
 	window.localStorage.setItem('userCoffee', JSON.stringify(coffees));
 	coffeeSearch(JSON.parse(localStorage.getItem('userCoffee')));
 }
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 let coffees = [
 	{id: 1, name: 'Light City', roast: 'light'},
@@ -61,17 +61,6 @@ let coffees = [
 	{id: 14, name: 'French', roast: 'dark'},
 ];
 
-// var tbody = document.querySelector('#coffees');
-// var submitButton = document.querySelector('#submit');
-// var roastSelection = document.querySelector('#roast-selection');
-//
-// tbody.innerHTML = renderCoffees(coffees);
-//
-// submitButton.addEventListener('click', updateCoffees);
-
-//new
-|
-
 //Sets the parsed item as to the coffeeList in order to display the addition on the page.
 const coffeeList = JSON.parse(localStorage.getItem('userCoffee'))
 
@@ -86,3 +75,12 @@ if (coffeeList === null) {
 } else {
 	section.innerHTML = renderCoffees(coffeeList);
 }
+
+
+
+//Event listeners for our search and buttons.
+submitButton.addEventListener('click', addCoffee);
+searchInput.addEventListener("keyup", coffeeSearch)
+roastSelection.addEventListener("change", coffeeSearch);
+// GH END
+
