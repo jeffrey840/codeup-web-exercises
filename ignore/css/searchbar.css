@@ -3,7 +3,10 @@
     border: red 1px solid;
 }
 
+/*coffee color palette*/
+.cc {
 
+}
 
 
 /*GH START*/
@@ -14,7 +17,6 @@ body{
     width: 100%;
     /*flex-wrap: wrap;*/
     /*justify-content: space-around;*/
-    /*background-image: url("img/coffeebox.jpeg");*/
     background-repeat: no-repeat;
     background-size: cover;
     color: antiquewhite;
@@ -46,7 +48,7 @@ h1 {
     position: absolute;
     transform: translate(750px,100px);
     text-align: center;
-    background-color: rgba(139,69,19,60%);
+    background-color: cadetblue;
     width: 40%;
     height: 13em;
     order: 2;
@@ -60,7 +62,7 @@ h1 {
     margin: 10px;
     border: inset;
     border-radius: 15px;
-    background-color: rgba(139,69,19,60%);
+    background-color: cadetblue;
 }
 
 input, select {
