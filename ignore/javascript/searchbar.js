@@ -44,7 +44,7 @@ function addCoffee(){
 
 	coffees.push(storeCoffee);
 
-	//local storage accepts a string, so we used the following to convert the
+	//local storage accepts a string, so we used the following to convert
 	// the user input objects as a string that can be stored locally.  The string is
 	//then parsed to store it withing the array of coffees.
 
@@ -56,7 +56,7 @@ function addCoffee(){
 //coffee list
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 let coffees = [
-	{id: 1, name: 'Light City', roast: 'light'},
+	{id: 1, name: 'Light City', roast: 'light', },
 	{id: 2, name: 'Half City', roast: 'light'},
 	{id: 3, name: 'Cinnamon', roast: 'light'},
 	{id: 4, name: 'City', roast: 'medium'},
@@ -72,6 +72,7 @@ let coffees = [
 	{id: 14, name: 'French', roast: 'dark'},
 ];
 
+
 //Sets the parsed item as to the coffeeList in order to display the addition on the page.
 const coffeeList = JSON.parse(localStorage.getItem('userCoffee'))
 
@@ -82,6 +83,8 @@ let roastSelection = document.querySelector('#roast-selection');
 let searchInput = document.querySelector('#coffeeSearch')
 
 // This is our if/else that prevents the page from displaying empty content when the list is defined as null.
+
+
 
 if (coffeeList === null) {
 	section.innerHTML = renderCoffees(coffees)
