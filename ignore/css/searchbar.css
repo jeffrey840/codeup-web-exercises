@@ -3,6 +3,21 @@
     border: red 1px solid;
 }
 
+:root {
+    --wt: #ffffff;
+    --blue: #1e90ff;
+    --dblue:#0c3448;
+    --lb:#e5a97c;
+    --mb:#c17743;
+    --dbrown:#37201c;
+    --lg:#9db57c;
+    --mg:#526024;
+    --dg:#9db57c;
+}
+
+/*example*/
+/*body { background-color: var(--blue); }*/
+
 /*coffee color palette*/
 .cc {
 
@@ -19,7 +34,7 @@ body{
     /*justify-content: space-around;*/
     background-repeat: no-repeat;
     background-size: cover;
-    color: antiquewhite;
+
 }
 
 
@@ -48,7 +63,7 @@ h1 {
     position: absolute;
     transform: translate(750px,100px);
     text-align: center;
-    background-color: cadetblue;
+    background-color: var(--mg);
     width: 40%;
     height: 13em;
     order: 2;
@@ -62,12 +77,10 @@ h1 {
     margin: 10px;
     border: inset;
     border-radius: 15px;
-    background-color: cadetblue;
+    background-color: var(--mg);
 }
 
 input, select {
-    background-color: saddlebrown;
-    color: antiquewhite;
     border: inset;
 }
 
