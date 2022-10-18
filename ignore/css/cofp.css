@@ -1,30 +1,117 @@
-.coffeebg {
-    background: linear-gradient(to bottom, rgba(210, 210, 0, 0.61), rgba(0, 210, 191, 0.34)), url("more.jpg");
-    background: lightcoral;
+*{
+    border: red 1px solid;
 }
 
-h6 {
-    font-family: 'Amatic SC', cursive, sans-serif;
-    font-size: 20px;
-    color: black;
+body {
+    background-color: #090707 !important;
+    color: white !important;
 }
 
-.amatic {
-    font-family: 'Amatic SC', cursive, sans-serif;
-    font-size: 50px;
+.navbar {
+    background-color: #090707;
+    border-bottom: white;
 }
 
-.small-amatic {
-    font-family: 'Amatic SC', cursive, sans-serif;
-    font-size: 35px;
+
+.jumbotron {
+    background-image: url("/ignore/assets/images/coffeeProject/karsten-winegeart-l24eJZ9cIQk-unsplash.jpg");
+    background-size: cover;
+    border-top: 1px solid #494848;;
+    height: 500px;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 70px;
+    text-align: center;
+    text-shadow: 2px 2px #211d1d;
 }
 
-h4 {
-    font-family: 'Amatic SC', cursive, sans-serif;
-    font-size: 50px;
+.small-icon {
+    border: 2px solid #bd8e6d;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #090707;
+    color: white;
+    padding: 6px;
 }
 
-h1 {
-    font-family: 'Amatic SC', cursive, sans-serif;
-    font-size: 50px;
+.main-title {
+    font-family: 'Dancing Script', cursive;
 }
+
+.theline {
+    display: flex;
+
+}
+
+.line-1 {
+    height: 1px;
+    margin-bottom: 2em;
+    margin-top: 2.5em;
+    width: 30%;
+    background-color: #bd8e6d;
+}
+
+.line-2 {
+    height: 1px;
+    margin-bottom: 2em;
+    margin-top: 2.5em;
+    width: 30%;
+    background-color: #bd8e6d;
+}
+
+.cafesito {
+    text-align: center;
+    margin-bottom: 1em;
+    /*margin-top: 0em;*/
+    font-size: xxx-large;
+    font-family: 'Dancing Script', cursive;
+}
+
+
+.big-icon {
+    border: 7px solid #ffffff;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-color: transparent;
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.the-btn {
+    color: white !important;
+}
+
+
+#coffees {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.search-thing {
+    float: right;
+
+}
+
+p {
+    color: #bd8e6d;
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    background-color: #bd8e6d;
+}
+
+/*body{min-height:200vh;}*/
+/*.navbar-default{*/
+/*    transition:500ms ease;*/
+/*    background: black:*/
+/*}*/
+/*.navbar-default.scrolled{*/
+/*    background:#000;*/
+/*}*/
