@@ -2,7 +2,7 @@
 //GH START
 "use strict"
 
-// This is the functions displays all the divs
+//function displays the coffee name/roast
 function renderCoffee(coffee) {
 	let html = '<div class="coffee">';
 	html += '<h3>' + coffee.name + '</h3>';
