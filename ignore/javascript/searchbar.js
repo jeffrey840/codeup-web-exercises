@@ -89,7 +89,7 @@ if (coffeeList === null) {
 }
 
 //clears window on reload
-window.onbeforeunload = window.localStorage.clear('userCoffee')
+// window.onbeforeunload = window.localStorage.clear('userCoffee')
 
 //Event listeners for our search and buttons.
 

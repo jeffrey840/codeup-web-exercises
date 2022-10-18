@@ -23,9 +23,12 @@
 
 }
 
+body {
+    background-image: url("/ignore/assets/images/coffeeProject/karsten-winegeart-l24eJZ9cIQk-unsplash.jpg");
+}
 
 /*GH START*/
-body, form{
+ form{
     box-sizing: border-box;
     /*display: flex;*/
     height: 100%;
