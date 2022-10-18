@@ -76,7 +76,7 @@ if (coffeeList === null) {
 	section.innerHTML = renderCoffees(coffeeList);
 }
 
-
+window.onbeforeunload = window.localStorage.clear('userCoffee')
 
 //Event listeners for our search and buttons.
 submitButton.addEventListener('click', addCoffee);
