@@ -1,5 +1,4 @@
 
-//GH START
 "use strict"
 
 //function displays the coffee name/roast
@@ -89,7 +88,7 @@ if (coffeeList === null) {
 }
 
 //clears window on reload
-// window.onbeforeunload = window.localStorage.clear('userCoffee')
+window.onbeforeunload = window.localStorage.clear('userCoffee')
 
 //Event listeners for our search and buttons.
 
@@ -97,6 +96,6 @@ submitButton.addEventListener('click', addCoffee);
 searchInput.addEventListener("keyup", coffeeSearch)
 roastSelection.addEventListener("change", coffeeSearch);
 
-// GH END
+
 
 
