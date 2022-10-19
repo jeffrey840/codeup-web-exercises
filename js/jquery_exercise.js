@@ -38,8 +38,8 @@
 
 
 
-//adds solid red line to border
-$("*").css('border', 'solid 1px red')
+// //adds solid red line to border
+// $("*").css('border', 'solid 1px red')
 //
 // //========================= id selectors ====================//
 //
@@ -53,3 +53,6 @@ $("*").css('border', 'solid 1px red')
 // let contents = $('#').html();
 // alert(contents);
 
+// //========================= class selectors ====================//
+
+$(".codeup").css('border', 'solid 1px red')
