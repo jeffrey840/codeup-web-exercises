@@ -3,9 +3,9 @@
 
 
 
-$(function() {
-		alert( 'The DOM has finished loading!' );
-});
+// $(function() {
+// 		alert( 'The DOM has finished loading!' );
+// });
 
 
 // // step 7.
@@ -35,3 +35,21 @@ $(function() {
 // // step 3
 // console.log('global:')
 // console.log($('#download-jquery-btn'));
+
+
+
+//adds solid red line to border
+$("*").css('border', 'solid 1px red')
+//
+// //========================= id selectors ====================//
+//
+// //highlights the contents inside the id of main head
+// $("#main-head").css('background-color', '#FF0')
+//
+// //alerts the contents inside the span with an id of "i-span"
+// // let contents = $('#i-span').html();
+// // alert(contents);
+//
+// let contents = $('#').html();
+// alert(contents);
+
