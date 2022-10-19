@@ -55,4 +55,14 @@
 
 // //========================= class selectors ====================//
 
-$(".codeup").css('border', 'solid 1px red')
+// $(".codeup").css('border', 'solid 1px red')
+
+// //========================= element selectors ====================//
+
+
+$("li").css("fontSize", "20px");
+
+$("h1, p, li").css('background-color', '#FF0')
+
+let contents = $('h1').html();
+alert(contents);
