@@ -89,5 +89,3 @@
 // 	$(this).css("color", "black");
 // });
 
-
-
