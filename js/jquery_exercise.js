@@ -59,11 +59,15 @@
 
 // //========================= element selectors ====================//
 
+// //changes the element li fontsize to 20px
+// $("li").css("fontSize", "20px");
+//
+// //highlights the background of the h1/p/li elements
+// $("h1, p, li").css('background-color', '#FF0')
+//
+// //displays an alert with the contents of h1
+// let contents = $('h1').html();
+// alert(contents);
 
-$("li").css("fontSize", "20px");
 
-$("h1, p, li").css('background-color', '#FF0')
-
-let contents = $('h1').html();
-alert(contents);
 
