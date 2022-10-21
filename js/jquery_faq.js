@@ -10,5 +10,10 @@ $( "dt" ).click(function() {
 });
 
 
+$( "#toggle-new" ).click(function() {
+	$( "li:nth-child(4)" ).toggleClass( "highlight" );
+});
 
-$('li').last().css('background-color', '#FF0');
+$( "h3" ).click(function() {
+	$( "li" ).toggleClass( "bold" );
+});
