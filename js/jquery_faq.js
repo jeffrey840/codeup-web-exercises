@@ -14,6 +14,14 @@ $( "#toggle-new" ).click(function() {
 	$( "li:nth-child(4)" ).toggleClass( "highlight" );
 });
 
+
 $( "h3" ).click(function() {
 	$( "li" ).toggleClass( "bold" );
 });
+
+
+$( "li" ).click(function() {
+	$('li:first-child').css('background-color', 'blue');
+
+});
+
