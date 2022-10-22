@@ -1,4 +1,4 @@
-
+(function() {
 "use strict";
 
 
@@ -71,21 +71,22 @@
 
 // //========================= mouse events ====================//
 
-// //when clicked the id of "main-head" is changed to blue
-// $('#main-head').click(function() {
-// 	$(this).css('background-color', 'blue');
-// });
-//
-// //when dbclicked the contents of "p" is changed to a font size of 18px
-// $('p').dblclick(function() {
-// 	$(this).css("fontSize", "18px");
-// });
-//
-// //when the contents of li are being hovered on, the text will turn red ,and when
-// //it is not hovered on it will return to black
-// $("li").hover(function(){
-// 	$(this).css("color", "red");
-// }, function(){
-// 	$(this).css("color", "black");
-// });
+//when clicked the id of "main-head" is changed to blue
+$('#main-head').click(function() {
+	$(this).css('background-color', 'blue');
+});
 
+//when dbclicked the contents of "p" is changed to a font size of 18px
+$('p').dblclick(function() {
+	$(this).css("fontSize", "18px");
+});
+
+//when the contents of li are being hovered on, the text will turn red ,and when
+//it is not hovered on it will return to black
+$("li").hover(function(){
+	$(this).css("color", "red");
+}, function(){
+	$(this).css("color", "black");
+});
+
+})();
