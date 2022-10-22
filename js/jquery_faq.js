@@ -25,3 +25,40 @@ $( "li" ).click(function() {
 	$('li:first-child').css('background-color', 'blue');
 });
 
+//==================== BONUS ===================//
+
+
+	// Painting Shuffle
+	// Determines the behavior of the left painting
+	$("div").children().first().on("click", function () {
+		let centerPainting = $("#center").attr("src");
+		let leftPainting = $("#left").attr("src");
+		$("#center").attr("src", leftPainting);
+		$("#left").attr("src", centerPainting);
+	});
+
+	// Randomly produces a 0 or 1 then based on that value
+	// determines the behavior of the center painting
+	$("div").children().first().next().on("click", function () {
+		let randomNumber = Math.floor(Math.random() * 2);
+		let centerPainting = $("#center").attr("src");
+		if (randomNumber === 0) {
+			let leftPainting = $("#left").attr("src");
+			$("#center").attr("src", leftPainting);
+			$("#left").attr("src", centerPainting);
+		} else {
+			let rightPainting = $("#right").attr("src");
+			$("#center").attr("src", rightPainting);
+			$("#right").attr("src", centerPainting);
+		}
+	});
+
+	// Determines the behavior of the right painting
+	$("div").children().last().on("click", function () {
+		let centerPainting = $("#center").attr("src");
+		let rightPainting = $("#right").attr("src");
+		$("#center").attr("src", rightPainting);
+		$("#right").attr("src", centerPainting);
+	});
+
+

@@ -4,6 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Title</title>
 
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+	      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
 	<style>
         p,
         dt {
@@ -26,47 +29,61 @@
         .invisible {
             visibility: hidden;
         }
-		.highlight {
-			background-color: yellow;
-		}
 
-		.bold {
+        .highlight {
+            background-color: yellow;
+        }
+
+        .bold {
             font-weight: bold
-		}
+        }
+
 
 	</style>
 </head>
 
-<body>
+<body class="container">
 
 <p>National Parks FAQ</p>
 <dl>
 	<dt>fact #1</dt>
-	<dd class="invisible">The National Park Service protects over 84 million acres of wild landscapes and historic sites.</dd>
+	<dd class="invisible">The National Park Service protects over 84 million acres of wild landscapes and historic
+		sites.
+	</dd>
 
 	<dt>fact #2</dt>
-	<dd class="invisible">Yellowstone National Park (in Wyoming, Idaho, and Montana) is the oldest U.S. national park, founded in 1872.</dd>
+	<dd class="invisible">Yellowstone National Park (in Wyoming, Idaho, and Montana) is the oldest U.S. national park,
+		founded in 1872.
+	</dd>
 
 	<dt>fact #3</dt>
-	<dd class="invisible">Three of the 10 highest waterfalls in the world are located in Yosemite National Park in California.</dd>
+	<dd class="invisible">Three of the 10 highest waterfalls in the world are located in Yosemite National Park in
+		California.
+	</dd>
 
 	<dt>fact #4</dt>
 	<dd class="invisible">Ribbon Falls in Yosemite is nine times taller than Niagara Falls.</dd>
 
 	<dt>fact #5</dt>
-	<dd class="invisible">California and Alaska each have eight national parks. </dd>
+	<dd class="invisible">California and Alaska each have eight national parks.</dd>
 
 	<dt>fact #6</dt>
-	<dd class="invisible">Arches National Park is famous for having the largest concentration of stone arches in the world.</dd>
+	<dd class="invisible">Arches National Park is famous for having the largest concentration of stone arches in the
+		world.
+	</dd>
 
 	<dt>fact #7</dt>
-	<dd class="invisible">Dry Tortugas National Park in Florida is known for its world-renowned concentration of turtles.</dd>
+	<dd class="invisible">Dry Tortugas National Park in Florida is known for its world-renowned concentration of
+		turtles.
+	</dd>
 
 	<dt>fact #8</dt>
 	<dd class="invisible">At 1,932 feet deep, Crater Lake National Park in Oregon is the deepest lake in the U.S.</dd>
 
 	<dt>fact #9</dt>
-	<dd class="invisible">Wind Cave National Park in South Dakota is the first cave to be named a national park in the world. </dd>
+	<dd class="invisible">Wind Cave National Park in South Dakota is the first cave to be named a national park in the
+		world.
+	</dd>
 
 	<dt>fact #10</dt>
 	<dd class="invisible">Mount Rainier is the most glaciated peak in the contiguous U.S. with 26 major glaciers.
@@ -76,23 +93,23 @@
 
 <a href="#" id="toggle-c">Click to toggle content</a>
 
-<h3 id="fruit-h" class="bold">fruits</h3>
-<ul id="fruits-ul" >
+<h3 class="bold">fruits</h3>
+<ul>
 	<li>apple</li>
 	<li>banana</li>
 	<li>pineapple</li>
 	<li>orange</li>
 </ul>
 
-<h3 id="foods-h" class="bold">foods</h3>
-<ul id="foods-ul">
+<h3 class="bold">foods</h3>
+<ul>
 	<li>pizza</li>
 	<li>noodles</li>
 	<li>soup</li>
 	<li>sandwich</li>
 </ul>
-<h3 id="cars-h" class="bold">cars</h3>
-<ul id="cars-ul">
+<h3 class="bold">cars</h3>
+<ul>
 	<li>lexus</li>
 	<li>nissan</li>
 	<li>acura</li>
@@ -100,11 +117,32 @@
 </ul>
 
 <button id="toggle-new">Click to toggle content</button>
+<br>
+<hr>
 
-
-
+<h1 style="text-align: center">JQuery Traversing</h1>
+<h5 style="text-align: center">Click painting to shuffle.</h5>
+<div class="d-flex justify-content-evenly">
+	<div>
+		<img src="./img/pexels-photo-210990.jpeg " id="left" class="painting rounded p-2" style="width: 200px">
+	</div>
+	<div>
+		<img src="./img/pexels-photo-3861969.jpeg" id="center" class="painting rounded p-2" style="width: 200px">
+	</div>
+	<div>
+		<img src="./img/pexels-photo-3184325.jpeg" id="right" class="painting rounded p-2" style="width: 200px">
+	</div>
+</div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="js/jquery_faq.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>
