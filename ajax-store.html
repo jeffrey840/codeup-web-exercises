@@ -30,6 +30,15 @@
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
+
+    $(function (){
+        $.ajax("data/inventory.json").done(function(json){
+            $.each(json, function(i, data){
+                $("#insertProducts").append("<tr><th>" + data.title + "</th><th>" + data.quantity + "</th><th>" + data.price + "</th><th>" + data.categories +"</th></tr>");
+            })
+        })
+    })
+
 })();
 </script>
 
