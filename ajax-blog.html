@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container p-5">
 <div id="posts"></div>
 </div>
 
@@ -27,11 +27,11 @@
 		data.forEach(function (item) {
 			$("#posts").append(
 				"<h3 class='text-info'>" + item.title + "</h3>" +
-				"<p class='text-success'>" + item.date + "</p>" +
-				"<p class='text-success'>" + item.content + "</p>" +
+				"<p class='text-muted'>" + item.date + "</p>" +
+				"<p class='text-muted'>" + item.content + "</p>" +
 				"<span class='text-muted'>" + item.categories.join(", ") + "</span>" +
 				"<br>" +
-				"<hr style='border: 3px solid cadetblue'>"
+				"<hr style='border: 3px solid lightskyblue'>"
 			);
 		});
 	});
