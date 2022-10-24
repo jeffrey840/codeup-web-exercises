@@ -30,5 +30,19 @@
             "tool"
         ],
         "price": 10
-    }
+    }, {
+    "title": "hacksaw",
+    "quantity": 15,
+    "categories": [
+        "tool"
+    ],
+    "price": 7
+    }, {
+    "title": "nails",
+    "quantity": 50,
+    "categories": [
+        "misc"
+    ],
+    "price": 17
+}
 ]

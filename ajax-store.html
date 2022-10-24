@@ -1,50 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Online Store</title>
+	<title>Online Store</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+	      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+	<style>
+        /** {*/
+        /*    Border:red 1px solid*/
+        /*}*/
+	</style>
 </head>
-<body>
 
-<h1>My Tool Store</h1>
+<div>
+	<h1 class="d-flex justify-content-center bg-success">My Tool Store</h1>
 
-<table id="products">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th>
-        </tr>
-    </thead>
-    <tbody id="insertProducts"></tbody>
-</table>
+	<div class="container d-flex justify-content-center">
+		<table id="products ">
+			<thead>
+			<tr>
+				<th>Title</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Categories</th>
+			</tr>
+			</thead>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+			<tbody id="insertProducts"></tbody>
+		</table>
+	</div>
+	<div class="d-flex justify-content-center">
+		<button id="refresh-button">Click To Refresh</button>
+	</div>
 
-<script>
-(function() {
-    "use strict";
-    // TODO: Create an AJAX GET request for the file under data/inventory.json
+	<!--scripts for project    -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+	        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+	        crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+	        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+	        crossorigin="anonymous"></script>
 
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
+	<script>
+		(function () {
+			"use strict";
+			// TODO: Create an AJAX GET request for the file under data/inventory.json
+			// TODO: Take the data from inventory.json and append it to the products table
+			//       HINT: Your data should come back as a JSON object; use console.log() to inspect
+			//             its contents and fields
+			//       HINT: You will want to target #insertProducts for your new HTML elements
 
-    $(function (){
-        $.ajax("data/inventory.json").done(function(json){
-            $.each(json, function(i, data){
-                $("#insertProducts").append("<tr><th>" +
-                        data.title + "</th><th>" +
-                        data.quantity + "</th><th>" +
-                        data.price + "</th><th>" +
-                        data.categories +"</th></tr>");
-            })
-        })
-    })
+			function refreshInventory() {
+				$.ajax("/data/inventory.json").done(function (data) {
+					$("#insertProducts").html("");
+					data.forEach(function (item) {
+						$("#insertProducts").append(
+							"<tr>" +
+							"<td>" + item.title + "</td>" +
+							"<td>" + item.quantity + "</td>" +
+							"<td>" + item.price + "</td>" +
+							"<td>" + item.categories + "</td>" +
+							"</tr>"
+						);
+					});
+				});
+			}
 
-})();
-</script>
-
+			//refresh when the button is clicked
+			refreshInventory();
+			$("#refresh-button").on("click", function () {
+				refreshInventory();
+			});
+		})();
+	</script>
+</div>
 </body>
 </html>
