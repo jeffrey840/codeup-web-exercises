@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Mapbox</title>
+<!--    link css here-->
+
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
     <style>
         #map{
@@ -14,28 +16,65 @@
 <body>
 
 <div id="map"></div>
+<!--link js here-->
+<script src="js/mapbox_geocode_utils.js"></script>
 
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
 <script>
-    const key = PASTE_KEY_HERE;
+<!--    paste map box key-->
+    const key = "pk.eyJ1IjoiamVmZnJleTg0MCIsImEiOiJjbDluNTZtY2QwNGRxM29sN29lMjZkdDVjIn0.uIVExK3ADOwPLi3QpTx7Ug";
 
     mapboxgl.accessToken = key;
     var map = new mapboxgl.Map({
+        //connected to the id of map
         container: 'map',
+        //style for the map
         style: 'mapbox://styles/mapbox/streets-v9',
+
         //TODO: Set your own zoom and center
+        //zoom:number, to zoom
+        zoom:10,
+        //center:array/add two coordinates,flip coordinates
+        center:[-95.54238964473504, 29.805150794033402]
+        //-95.54238964473504
+        // 29.805150794033402
     });
 
     //TODO: Set zoom on your own with a map.setZoom call in your console
-
+    // map.zoom(15)
 
     //TODO: Add your own marker to where we've aligned your map so far
+    let marker = new mapboxgl.Marker()
+            .setLngLat([-95.54238964473504, 29.805150794033402])
+            .addTo(map)
 
 
     //TODO: Use the geocode method to add a 2nd marker and popup to your map, then center your map over it
-
+    let popup = new mapboxgl.Popup()
+            .setLngLat([-95.54238964473504, 29.805150794033402])
+            .setHTML("<p> House </p>")
+            .addTo(map)
 
     //TODO: Try a reverse geocode yourself and see what address you get back for your coordinates - remember to send up a {lng: <lng>, lat: <lat>} object
+
+    geocode("Memorial City Mall",key).then(function(result) {
+        console.log(result)
+
+        let marker2 = new mapboxgl.Marker()
+                .setLngLat(result)
+                .addTo(map)
+
+        let popoup2 = new mapboxgl.Popup()
+                .setLngLat(result)
+                .setHTML("<p> Mall </p>")
+                .addTo(map)
+    })
+
+    reverseGeocode({lng:-95.54557243610769,lat:29.807956355427866}, key).then(function(result) {
+
+        alert(`here's the address for the coordinate || ${result}`)
+    })
+
 </script>
 </body>
 </html>
