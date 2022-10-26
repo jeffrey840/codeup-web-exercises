@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<!--script references key.js-->
+<script src="js/keys.js"></script>
+
+<h1>current weather</h1>
+<p>insert city</p>
+
+<input type="text" id="searchBox" placeholder="enter a location here">
+<button type="button" id="searchBtn">search</button>
+
+<div id="current"></div>
+
+
+<!--jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+
+<script>
+
+	let favoriteCity = "Oceanside";
+	console.log(OWK)
+
+	console.log(`https://api.openweathermap.org/data/2.5/weather?=${favoriteCity}&appid=${OWK}`)
+
+	$.ajax(`https://api.openweathermap.org/data/2.5/weather?q=${favoriteCity}&appid=${OWK}&units=imperial`).done(function(data) {
+		console.log(data);
+	})
+</script>
+
+</body>
+</html>
