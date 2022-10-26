@@ -24,8 +24,15 @@ const map = new mapboxgl.Map({
 	zoom: 9 // starting zoom
 });
 
-// var marker = new mapboxgl.Marker({
-// 	draggable: true
-// })
+map.addControl(new mapboxgl.FullscreenControl());
+// restaurants.forEach(function (restaurant) {
+// 	let marker = new mapboxgl.Marker().setLngLat([restaurant.long, restaurant.lat]).addTo(map);
+// 	let popup = new mapboxgl.Popup().setHTML("<p>" + restaurant.name + "<br>" + restaurant.info + "</p>" );
+// 	marker.setPopup(popup);
+// });
 
-let marker = new mapboxgl.Marker().setLngLat([restaurant.long, restaurant.lat]).addTo(map);
+const marker = new mapboxgl.Marker()
+	     .setLngLat([30.5, 50.5])
+     .addTo(map);
+
+
