@@ -25,7 +25,7 @@
 	</style>
 
 </head>
-
+<script src="js/keys.js"></script>
 <body class="container d-flex">
 <div class="col">
 	<div id="map" class="m-auto mt-5"></div>
@@ -48,7 +48,7 @@
 <!-- Custom JS -->
 <script>
 
-	mapboxgl.accessToken = "pk.eyJ1IjoiamVmZnJleTg0MCIsImEiOiJjbDluNTZtY2QwNGRxM29sN29lMjZkdDVjIn0.uIVExK3ADOwPLi3QpTx7Ug";
+	mapboxgl.accessToken = MBK;
 	const map = new mapboxgl.Map({
 		container: 'map', // container ID
 		style: 'mapbox://styles/mapbox/streets-v11', // style URL
@@ -89,8 +89,6 @@
 		let popup = new mapboxgl.Popup().setHTML("<p>" + restaurant.name + "<br>" + restaurant.info + "</p>" );
 		marker.setPopup(popup);
 	});
-
-
 
 
 </script>

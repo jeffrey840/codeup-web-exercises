@@ -29,6 +29,7 @@
 
 </head>
 
+<!--PAGE LAYOUT START-->
 <body class="container">
 <script src="js/keys.js"></script>
 
@@ -86,15 +87,15 @@
 	</div>
 </div>
 
-
+<input type="text" id="searchBox" placeholder="Enter a location here">
+<button type="button" id="searchBtn">Search</button>
 
 <div class="col">
 	<div id="map" class="m-auto mt-3">
 	</div>
 </div>
 
-
-
+<!--PAGE LAYOUT END-->
 
 <!-- Mapbox Geocoder Util Methods -->
 <script src="js/mapbox_geocode_utils.js"></script>
@@ -108,8 +109,92 @@
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
 
-<!--external JS file-->
-<script src="js/weather_map.js"></script>
+<!--Js script-->
+<script>
+
+	//when the the user moves the marker to a new location the marker will update the cards
+	//whne the user input a location in the textbox find that location update cards
+
+	// https://api.openweathermap.org/data/2.5/onecall?lat={29.423017}&lon={-98.48527}&exclude={hourly,daily}&appid={"91153175f66a5d3b4967f618fd8e6102"}
+
+	// $.get("https://api.openweathermap.org/data/2.5/forecast", {
+	// 	APPID: OWK,
+	// 	lat:    29.423017,
+	// 	lon:   -98.48527,
+	// 	units: "imperial"
+	// }).done(function(data) {
+	// 	console.log('5 day forecast', data);
+	// });
+
+
+	// mapboxgl.accessToken = MBK;
+	// const map = new mapboxgl.Map({
+	// 	container: 'map', // container ID
+	// 	style: 'mapbox://styles/mapbox/streets-v11', // style URL
+	// 	center: [-98.48527,29.423017], // starting position [lng, lat]
+	// 	zoom: 9 // starting zoom
+	// });
+
+	//
+	// map.addControl(new mapboxgl.FullscreenControl());
+	// // restaurants.forEach(function (restaurant) {
+	// // 	let marker = new mapboxgl.Marker().setLngLat([restaurant.long, restaurant.lat]).addTo(map);
+	// // 	let popup = new mapboxgl.Popup().setHTML("<p>" + restaurant.name + "<br>" + restaurant.info + "</p>" );
+	// // 	marker.setPopup(popup);
+	// // });
+	//
+	// // const marker = new mapboxgl.Marker()
+	// // 	     .setLngLat([-98.48527, 29.423017]) //default
+	// //      .addTo(map);
+	//
+	// const marker = new mapboxgl.Marker({
+	// 	color: "blue",
+	// 	draggable: true
+	// }).setLngLat([-98.48527, 29.423017])
+	// 	.addTo(map);
+
+	//refer to line 252 to get information of the marker
+
+
+	$("#searchBtn").click(function(e){
+		e.preventDefault();
+		console.log($("#searchBox").val());
+
+		let inputStr = $("#searchBox").val();
+
+
+		$.ajax(`https://api.openweathermap.org/data/2.5/forecast?q=${inputStr}&appid=${OWK}&units=imperial`).done(function(data){
+			console.log(data);
+			//displays index 0 time
+			console.log("time is " + data.list[0]["dt_txt"])
+
+			//description
+			console.log("description " + data.list[0]["weather"]["0"]["description"]);
+
+			//current temp
+			console.log("current temp " + data.list[0]["main"]["temp"]);
+
+			//mintemp
+			console.log("mintemp " + data.list[0]["main"]["temp_min"]);
+
+			//maxtemp
+			console.log("maxtemp " + data.list[0]["main"]["temp_max"]);
+
+			//humidity
+			console.log("humidity " + data.list[0]["main"]["humidity"]);
+
+			//pressure
+			console.log("pressure " + data.list[0]["main"]["pressure"]);
+
+			//wind speed
+			console.log("wind speed " + data.list[0]["wind"]["speed"]);
+		})
+
+
+	})
+
+</script>
+
 
 </body>
 
