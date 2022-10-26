@@ -31,8 +31,14 @@ map.addControl(new mapboxgl.FullscreenControl());
 // 	marker.setPopup(popup);
 // });
 
-const marker = new mapboxgl.Marker()
-	     .setLngLat([30.5, 50.5])
-     .addTo(map);
+// const marker = new mapboxgl.Marker()
+// 	     .setLngLat([-98.48527, 29.423017]) //default
+//      .addTo(map);
 
+ const marker = new mapboxgl.Marker({
+		     color: "blue",
+		     draggable: true
+			 }).setLngLat([-98.48527, 29.423017])
+	     .addTo(map);
 
+//refer to line 252 to get information of the marker
