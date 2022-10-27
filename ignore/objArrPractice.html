@@ -64,11 +64,11 @@
 	  return sum;
   }
 
-  console.log(getBudgets([
-	  {name: "John", age: 21, budget: 23000},
-	  {name: "Steve", age: 32, budget: 40000},
-	  {name: "Martin", age: 16, budget: 2700}
-  ]));
+  // console.log(getBudgets([
+	//   {name: "John", age: 21, budget: 23000},
+	//   {name: "Steve", age: 32, budget: 40000},
+	//   {name: "Martin", age: 16, budget: 2700}
+  // ]));
 
   /**
    * Convert Address to Object
@@ -79,7 +79,15 @@
    * >> convertAddressToObject('8626 Sunny Oaks') ➞ {streetNumber: '8646', streetName: 'Sunny Oaks'}
    * >> convertAddressToObject('5408 Villa Nueva') ➞ {streetNumber: '5408', streetName: 'Villa Nueva'}
    */
-
+  //
+  //
+  function convertAddressToObject(str) {
+	  let arr = str.split(/\s+/)
+	  let res = {streetNumber:arr[0], streetName:arr[1] + " " + arr[2]}
+	  return res
+  }
+  //
+  // console.log(convertAddressToObject('5408 Villa Nueva'));
   /**
    * Count total pets
    * Write a function named totalPets that accepts an array of objects where each object represents a person, and has a 'pets' property for their owned pets. The function should return the sum of every object's numPets property.
