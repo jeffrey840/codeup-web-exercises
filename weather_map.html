@@ -38,39 +38,8 @@
 <div class="card-group">
 	<!--	duplicate the card div-->
 	<div class="card">
-		<!--icon start-->
-		<img src="" class="card-img-top" alt="...">
-		<!--icon end-->
+
 		<div class="card-body">
-			<div class="card-title " ></div>
-			<div class="card-text Tm" ></div>
-			<div class="card-text cT" ></div>
-			<div class="card-text minT" ></div>
-			<div class="card-text maxT" ></div>
-			<div class="card-text des" ></div>
-			<div class="card-text hum" ></div>
-			<div class="card-text ws" ></div>
-			<div class="card-text pres" ></div>
-
-
-		</div>
-	</div>
-	<!--	card div end-->
-
-	<div class="card">
-		<!--icon start-->
-		<img src="" class="card-img-top" alt="...">
-		<!--icon end-->
-		<div class="card-body">
-			<div class="card-title" ></div>
-			<div class="card-text Tm" ></div>
-			<div class="card-text cT" ></div>
-			<div class="card-text minT" ></div>
-			<div class="card-text maxT" ></div>
-			<div class="card-text des" ></div>
-			<div class="card-text hum" ></div>
-			<div class="card-text ws" ></div>
-			<div class="card-text pres" ></div>
 
 
 		</div>
@@ -147,9 +116,9 @@
 	}).setLngLat([-98.48527, 29.423017])
 		.addTo(map);
 
-	const lngLat = marker.getLngLat();
-	console.log(`Longitude: ${lngLat.lng}, Latitude: ${lngLat.lat}`);
 	//refer to line 252 to get information of the marker
+
+
 
 
 	$("#searchBtn").click(function (e) {
@@ -160,46 +129,63 @@
 
 
 		$.ajax(`https://api.openweathermap.org/data/2.5/forecast?q=${inputStr}&appid=${OWK}&units=imperial`).done(function (data) {
+
+			let srclat = data.city.coord.lat;
+			let srclon = data.city.coord.lon;
+
 			console.log(data)
 
-				let time = data.list[0]["dt_txt"]
-				$(`<p>${time} </p>`).appendTo(".tm")
+			$.ajax(`https://api.openweathermap.org/data/2.5/onecall?lat=${srclat}&lon=${srclon}&appid=${OWK}`).done(function (data) {
+				console.log(data)
 
-				//current temp
-				let currentT = data.list[0]["main"]["temp"]
-				$(`<p>${currentT} </p>`).appendTo(".cT")
-
-				//mintemp
-				let mintemp = data.list[0]["main"]["temp_min"]
-				$(`<p>${mintemp} </p>`).appendTo(".minT")
-
-				//maxtemp
-				let maxtemp = data.list[0]["main"]["temp_max"]
-				$(`<p>${maxtemp} </p>`).appendTo(".maxT")
-
-				//description
-				let description = data.list[0]["weather"]["0"]["description"]
-				$(`<p>${description} </p>`).appendTo(".des")
+			})
 
 
-				//humidity
-				let humidity = data.list[0]["main"]["humidity"]
-				$(`<p>${humidity} </p>`).appendTo(".hum")
-
-				//wind speed
-				let windSpeed = data.list[0]["wind"]["speed"];
-				$(`<p>${windSpeed} </p>`).appendTo(".ws")
-
-				//pressure
-				let pressure = data.list[0]["main"]["pressure"]
-				$(`<p>${pressure} </p>`).appendTo(".pres")
+		})})
 
 
-			}
-		)
 
-
-	})
+	// 	$.ajax(`https://api.openweathermap.org/data/2.5/forecast?q=${inputStr}&appid=${OWK}&units=imperial&cnt=5`).done(function (data) {
+	// 		console.log(data)
+	//
+	// 		    // let iconcode = data.list[0]["weather"]["0"]["icon"];
+	// 			//
+	// 			// let time = data.list[0]["dt_txt"]
+	// 			// $(`<p>${time} </p>`).appendTo(".tm")
+	// 			//
+	// 			// //current temp
+	// 			// let currentT = data.list[0]["main"]["temp"]
+	// 			// $(`<p>${currentT} </p>`).appendTo(".cT")
+	// 			//
+	// 			// //mintemp
+	// 			// let mintemp = data.list[0]["main"]["temp_min"]
+	// 			// $(`<p>${mintemp} </p>`).appendTo(".minT")
+	// 			//
+	// 			// //maxtemp
+	// 			// let maxtemp = data.list[0]["main"]["temp_max"]
+	// 			// $(`<p>${maxtemp} </p>`).appendTo(".maxT")
+	// 			//
+	// 			// //description
+	// 			// let description = data.list[0]["weather"]["0"]["description"]
+	// 			// $(`<p>${description} </p>`).appendTo(".des")
+	// 			//
+	// 			//
+	// 			// //humidity
+	// 			// let humidity = data.list[0]["main"]["humidity"]
+	// 			// $(`<p>${humidity} </p>`).appendTo(".hum")
+	// 			//
+	// 			// //wind speed
+	// 			// let windSpeed = data.list[0]["wind"]["speed"];
+	// 			// $(`<p>${windSpeed} </p>`).appendTo(".ws")
+	// 			//
+	// 			// //pressure
+	// 			// let pressure = data.list[0]["main"]["pressure"]
+	// 			// $(`<p>${pressure} </p>`).appendTo(".pres")
+	//
+	//
+	// 		}
+	// 	)
+	// })
 
 </script>
 
@@ -207,3 +193,201 @@
 </body>
 
 </html>
+
+<!--gh                ---------------------------------------------->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--	<meta charset="UTF-8">-->
+<!--	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+<!--	<title>Weather Map</title>-->
+<!--	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+<!--	      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+<!--	<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.css' rel='stylesheet'/>-->
+<!--	<link rel="preconnect" href="https://fonts.gstatic.com">-->
+<!--	<link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">-->
+<!--	<link rel="stylesheet" href="../CSS/weather_map.css">-->
+<!--</head>-->
+
+
+
+
+<!--<body>-->
+<!--<div class="nav1">-->
+<!--	<nav class="navbar">-->
+<!--		<a class="navbar-brand" style="color: black; font-size: 50px; font-weight: bolder">Weather Map</a>-->
+<!--		<form class="form-inline">-->
+<!--			<input class="form-control mr-sm-2" id="input" type="search" placeholder="Enter by City" aria-label="Search">-->
+<!--			<button id="btn" class="btn my-2 my-sm-0" type="submit">Search</button>-->
+<!--		</form>-->
+<!--	</nav>-->
+<!--</div>-->
+<!--<section class="container-fluid">-->
+<!--	<div class="five">-->
+<!--		<h3 style="align-content: center">Five day forecast:</h3>-->
+<!--	</div>-->
+<!--	<div>-->
+<!--		<div class="weatherBox row" id="insertWeatherBoxes"></div>-->
+<!--	</div>-->
+
+<!--	<div>-->
+<!--		<div class='mx-4 mt-5' id='map' style='width: auto; height: 400px;'></div>-->
+<!--		<pre id="coordinates" class="coordinates"></pre>-->
+<!--	</div>-->
+<!--</section>-->
+
+
+
+
+<!--<script src="../JS/jquery/jquery-2.2.4.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"-->
+<!--        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"-->
+<!--        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js'></script>-->
+<!--<script src="../JS/keys.js"></script>-->
+<!--<script src="../JS/mapbox-geocoder-utils.js"></script>-->
+<!--<script>-->
+<!--	use strict"-->
+
+<!--	// setting up global variables to call the data from Weather Map-->
+<!--	var longitude = -98.7320-->
+<!--	var latitude = 29.7947-->
+
+<!--	// Calling initial getData function-->
+<!--	getData();-->
+
+<!--	// -&#45;&#45;&#45;&#45;&#45;&#45; Query the Weather Map API &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<!--	// String and Object Method:-->
+<!--	// Using this method for the sake of readability-->
+<!--	// Excluding minutely and hourly.-->
+<!--	// Changing kelvins to imperial: Fahrenheit-->
+<!--	// Defining the 'get' request as a function 'getData' in order to call it multiple times-->
+<!--	function getData() {-->
+<!--		$.get("https://api.openweathermap.org/data/2.5/onecall", {-->
+<!--			APPID: OPEN_WEATHER_APPID,-->
+<!--			lat: latitude,-->
+<!--			lon: longitude,-->
+<!--			units: "imperial",-->
+<!--			exclude: "minutely, hourly"-->
+<!--		}).done(function (data) {-->
+<!--			handleResponse(data)-->
+<!--		});-->
+<!--	}-->
+
+<!--	// Setting up handle response to iterate through the returned data and populate the html:-->
+<!--	function handleResponse(data) {-->
+<!--		let days = data.daily;-->
+<!--		let html = "";-->
+<!--		for (var i = 0; i < 5; i++) {-->
+<!--			let date = dateMaker(i);-->
+<!--			let iconCode = days[i].weather[0].icon;-->
+<!--			cardColor(iconCode);-->
+<!--			let tempHigh = Math.round(days[i].temp.max);-->
+<!--			let tempLow = Math.round(days[i].temp.min);-->
+<!--			let description = days[i].weather[0].description;-->
+<!--// Embedding into the div.card element using string method:-->
+<!--			let itemHtml = "<div style='align-items: center; margin-bottom: 50px' class='card col-2' style='width: 17rem'>"-->
+<!--			itemHtml += '<span class="date-text">' + date + '</span>';-->
+<!--			itemHtml += "<img style='height: 50px; width: 50px;' src='http://openweathermap.org/img/w/" + iconCode + ".png'>" // Refactored the image names of the local icons to work with this-->
+<!--			itemHtml += '<h5 class="highText">' + 'High ' + tempHigh + '</h5>';-->
+<!--			itemHtml += '<h5 class="lowText">' + 'Low ' + tempLow + '</h5>';-->
+<!--			itemHtml += '<p class="card-footer my-1">' + description + '</p>';-->
+<!--			itemHtml += '</div>';-->
+<!--			html += itemHtml;-->
+<!--		}-->
+<!--		$('#insertWeatherBoxes').html(html);-->
+
+<!--		//-&#45;&#45;&#45;&#45;&#45;&#45; Map -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<!--		mapboxgl.accessToken = MAPBOX_KEY-->
+<!--		const map = new mapboxgl.Map({-->
+<!--			container: 'map', // container ID-->
+<!--			style: 'mapbox://styles/mapbox/light-v10', // style URL-->
+<!--			center: [longitude, latitude], // starting position [lng, lat]-->
+<!--			zoom: 9 // starting zoom-->
+<!--		});-->
+
+<!--// Map Nav Controls-->
+<!--		map.addControl(new mapboxgl.NavigationControl());-->
+
+<!--//Starting Draggable Marker (default point)-->
+<!--		var marker = new mapboxgl.Marker({-->
+<!--			draggable: true-->
+<!--		})-->
+<!--			.setLngLat([longitude, latitude])-->
+<!--			.addTo(map);-->
+
+<!--// Adding functionality to draggable marker-->
+
+<!--		function onDragEnd() {-->
+<!--			var lngLat = marker.getLngLat();-->
+<!--			longitude = lngLat.lng;-->
+<!--			latitude = lngLat.lat;-->
+<!--			getData();-->
+<!--		}-->
+<!--		marker.on('dragend', onDragEnd);-->
+<!--	}-->
+
+<!--	// Trying to manipulate the date() object to work with the weather cards.-->
+<!--	// Pass the dateMaker function the index number (i) in the handleResponse.-->
+<!--	// The setDate() method sets the day of the Date object relative-->
+<!--	// to the beginning of the currently set month. -MDN-->
+<!--	// The getDate() method returns the day of the month for the specified-->
+<!--	// date according to local time. -MDN-->
+
+<!--	function dateMaker(num) {-->
+<!--		let date = new Date();-->
+<!--		date.setDate(date.getDate() + num)-->
+<!--		return date.toDateString().slice(0, 10);-->
+<!--	}-->
+
+<!--	// Change the background of the Weather Cards depending on the iconCode-->
+<!--	function cardColor (code) {-->
+<!--		$('.card').css("background-image", function () {-->
+<!--				if (code === "01d") {-->
+<!--					return "linear-gradient(45deg, skyblue, skyblue)";-->
+<!--				}-->
+<!--				if (code === "02d" || "03d" || "10d") {-->
+<!--					return "linear-gradient(45deg, skyblue, grey)";-->
+<!--				}-->
+<!--				if (code === "04d" || "09d" || "11d") {-->
+<!--					return "linear-gradient(45deg, lightgray, darkslategrey)";-->
+<!--				}-->
+<!--				if (code === "50d") {-->
+<!--					return "linear-gradient(45deg, gray, ghostwhite)";-->
+<!--				}-->
+<!--				if (code === "13d") {-->
+<!--					return "linear-gradient(45deg, lightgrey, whitesmoke)";-->
+<!--				}-->
+<!--				else {-->
+<!--					return "linear-gradient(45deg, skyblue, grey)";-->
+<!--				}-->
+
+<!--			}-->
+<!--		)-->
+<!--	}-->
+
+<!--	//-&#45;&#45;&#45;&#45;&#45;&#45; Search by City geocode &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<!--	$(".btn").click(function (e) {-->
+<!--		e.preventDefault()-->
+<!--		let searchInput = $("#input").val();-->
+<!--		geocode(searchInput, MAPBOX_KEY).then(function (data) {-->
+<!--			// console.log();-->
+<!--			longitude = data[0];-->
+<!--			latitude = data[1];-->
+<!--			getData();-->
+<!--		})-->
+
+<!--	})-->
+
+<!--</script>-->
+<!--</body>-->
+
+<!--</html>-->
