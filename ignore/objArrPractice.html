@@ -100,6 +100,20 @@
    *       {name: 'Kenneth Howell', pets: 2}
    *    ]) ➞ 11
    */
+  function totalPets(obj) {
+	  let sum = 0;
+	  for(let i = 0; i < obj.length; i++ ) {
+		  sum += obj[i].pets
+	  }
+	  return sum;
+  }
+
+  // console.log(totalPets([
+	//   {name: 'Fernando Mendoza', pets: 1},
+	//   {name: 'Douglas Hirsh', pets: 8},
+	//   {name: 'Kenneth Howell', pets: 2}
+  // ]));
+
 </script>
 
 </body>
