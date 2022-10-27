@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Object array practise</title>
+	<title>Object/array practise</title>
 </head>
 <body>
 
@@ -20,7 +20,24 @@
    * Notes
    * Ignore tax or additional fees when calculating the total order cost.
    */
+	//make function
+  //deterfmines weather shoper will get free shipping
+  //if over 50 user will get free shipping
+  //returns boolean
 
+  function freeShipping( obj ) {
+	  let sum = 0;
+	  for( let el in obj ) {
+		  if( obj.hasOwnProperty( el ) ) {
+			  sum += parseFloat( obj[el] );
+		  }
+	  }
+	 if(sum > 50){
+		 return true
+	 }return false
+  }
+
+  console.log(freeShipping({ Shampoo: 5.99, Rubber_Ducks: 15.99 }));
 
   /**
    * Get Sum of People's Budget
