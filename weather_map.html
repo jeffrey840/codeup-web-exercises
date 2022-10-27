@@ -10,11 +10,12 @@
 	<!-- Mapbox CSS -->
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet'/>
 	<!-- Bootstrap -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+	      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<style>
-		* {
-            Border:red 1px solid;
-		}
+        * {
+            Border: red 1px solid;
+        }
 
         body {
             background-color: #404040;
@@ -35,56 +36,47 @@
 
 <!--for each on the cards inside the js file-->
 <div class="card-group">
+	<!--	duplicate the card div-->
 	<div class="card">
+		<!--icon start-->
 		<img src="" class="card-img-top" alt="...">
+		<!--icon end-->
 		<div class="card-body">
-			<h5 class="card-title">Card title</h5>
-			<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-		</div>
-		<div class="card-footer">
-			<small class="text-muted">Last updated 3 mins ago</small>
+			<div class="card-title " ></div>
+			<div class="card-text Tm" ></div>
+			<div class="card-text cT" ></div>
+			<div class="card-text minT" ></div>
+			<div class="card-text maxT" ></div>
+			<div class="card-text des" ></div>
+			<div class="card-text hum" ></div>
+			<div class="card-text ws" ></div>
+			<div class="card-text pres" ></div>
+
+
 		</div>
 	</div>
-	<div class="card" >
-		<img src="" class="card-img-top" alt="...">
-		<div class="card-body">
-			<h5 class="card-title">Card title</h5>
-			<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-		</div>
-		<div class="card-footer">
-			<small class="text-muted">Last updated 3 mins ago</small>
-		</div>
-	</div>
+	<!--	card div end-->
+
 	<div class="card">
+		<!--icon start-->
 		<img src="" class="card-img-top" alt="...">
+		<!--icon end-->
 		<div class="card-body">
-			<h5 class="card-title">Card title</h5>
-			<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-		</div>
-		<div class="card-footer">
-			<small class="text-muted">Last updated 3 mins ago</small>
+			<div class="card-title" ></div>
+			<div class="card-text Tm" ></div>
+			<div class="card-text cT" ></div>
+			<div class="card-text minT" ></div>
+			<div class="card-text maxT" ></div>
+			<div class="card-text des" ></div>
+			<div class="card-text hum" ></div>
+			<div class="card-text ws" ></div>
+			<div class="card-text pres" ></div>
+
+
 		</div>
 	</div>
-	<div class="card">
-		<img src="" class="card-img-top" alt="...">
-		<div class="card-body">
-			<h5 class="card-title">Card title</h5>
-			<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-		</div>
-		<div class="card-footer">
-			<small class="text-muted">Last updated 3 mins ago</small>
-		</div>
-	</div>
-	<div class="card">
-		<img src="" class="card-img-top" alt="...">
-		<div class="card-body">
-			<h5 class="card-title">Card title</h5>
-			<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-		</div>
-		<div class="card-footer">
-			<small class="text-muted">Last updated 3 mins ago</small>
-		</div>
-	</div>
+	<!--	card div end-->
+
 </div>
 
 <input type="text" id="searchBox" placeholder="Enter a location here">
@@ -101,9 +93,13 @@
 <script src="js/mapbox_geocode_utils.js"></script>
 
 <!--scripts for project    -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -126,14 +122,15 @@
 	// 	console.log('5 day forecast', data);
 	// });
 
-
-	// mapboxgl.accessToken = MBK;
-	// const map = new mapboxgl.Map({
-	// 	container: 'map', // container ID
-	// 	style: 'mapbox://styles/mapbox/streets-v11', // style URL
-	// 	center: [-98.48527,29.423017], // starting position [lng, lat]
-	// 	zoom: 9 // starting zoom
-	// });
+	//displays map on page start
+	mapboxgl.accessToken = MBK;
+	const map = new mapboxgl.Map({
+		container: 'map', // container ID
+		style: 'mapbox://styles/mapbox/streets-v11', // style URL
+		center: [-98.48527, 29.423017], // starting position [lng, lat]
+		zoom: 9 // starting zoom
+	});
+	//displays map on page end
 
 	//
 	// map.addControl(new mapboxgl.FullscreenControl());
@@ -143,52 +140,63 @@
 	// // 	marker.setPopup(popup);
 	// // });
 	//
-	// // const marker = new mapboxgl.Marker()
-	// // 	     .setLngLat([-98.48527, 29.423017]) //default
-	// //      .addTo(map);
-	//
-	// const marker = new mapboxgl.Marker({
-	// 	color: "blue",
-	// 	draggable: true
-	// }).setLngLat([-98.48527, 29.423017])
-	// 	.addTo(map);
 
+	const marker = new mapboxgl.Marker({
+		color: "blue",
+		draggable: true
+	}).setLngLat([-98.48527, 29.423017])
+		.addTo(map);
+
+	const lngLat = marker.getLngLat();
+	console.log(`Longitude: ${lngLat.lng}, Latitude: ${lngLat.lat}`);
 	//refer to line 252 to get information of the marker
 
 
-	$("#searchBtn").click(function(e){
+	$("#searchBtn").click(function (e) {
 		e.preventDefault();
 		console.log($("#searchBox").val());
 
 		let inputStr = $("#searchBox").val();
 
 
-		$.ajax(`https://api.openweathermap.org/data/2.5/forecast?q=${inputStr}&appid=${OWK}&units=imperial`).done(function(data){
-			console.log(data);
-			//displays index 0 time
-			console.log("time is " + data.list[0]["dt_txt"])
+		$.ajax(`https://api.openweathermap.org/data/2.5/forecast?q=${inputStr}&appid=${OWK}&units=imperial`).done(function (data) {
+			console.log(data)
 
-			//description
-			console.log("description " + data.list[0]["weather"]["0"]["description"]);
+				let time = data.list[0]["dt_txt"]
+				$(`<p>${time} </p>`).appendTo(".tm")
 
-			//current temp
-			console.log("current temp " + data.list[0]["main"]["temp"]);
+				//current temp
+				let currentT = data.list[0]["main"]["temp"]
+				$(`<p>${currentT} </p>`).appendTo(".cT")
 
-			//mintemp
-			console.log("mintemp " + data.list[0]["main"]["temp_min"]);
+				//mintemp
+				let mintemp = data.list[0]["main"]["temp_min"]
+				$(`<p>${mintemp} </p>`).appendTo(".minT")
 
-			//maxtemp
-			console.log("maxtemp " + data.list[0]["main"]["temp_max"]);
+				//maxtemp
+				let maxtemp = data.list[0]["main"]["temp_max"]
+				$(`<p>${maxtemp} </p>`).appendTo(".maxT")
 
-			//humidity
-			console.log("humidity " + data.list[0]["main"]["humidity"]);
+				//description
+				let description = data.list[0]["weather"]["0"]["description"]
+				$(`<p>${description} </p>`).appendTo(".des")
 
-			//pressure
-			console.log("pressure " + data.list[0]["main"]["pressure"]);
 
-			//wind speed
-			console.log("wind speed " + data.list[0]["wind"]["speed"]);
-		})
+				//humidity
+				let humidity = data.list[0]["main"]["humidity"]
+				$(`<p>${humidity} </p>`).appendTo(".hum")
+
+				//wind speed
+				let windSpeed = data.list[0]["wind"]["speed"];
+				$(`<p>${windSpeed} </p>`).appendTo(".ws")
+
+				//pressure
+				let pressure = data.list[0]["main"]["pressure"]
+				$(`<p>${pressure} </p>`).appendTo(".pres")
+
+
+			}
+		)
 
 
 	})
