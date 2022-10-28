@@ -1,0 +1,69 @@
+body {
+    background-color: #f0f0f0;
+}
+
+/*.container {*/
+/*    border: 2px solid black;*/
+/*}*/
+.nav1{
+    background-color: lightblue;
+}
+.weatherBox {
+    justify-content: space-around;
+    display: flex;
+}
+
+.card {
+    text-align: center;
+    align-content: center;
+    background-image: linear-gradient(180deg, lightgray, lightblue);
+    padding: 0;
+    /*box-shadow: 0 0 1pt 2pt #829FD9;*/
+    border-radius: 20px;
+}
+
+.card-footer {
+    padding: 0;
+    margin: 0;
+    background: none;
+}
+
+#map {
+    border: #829FD9 solid 1px;
+    border-radius: 20px;
+    box-shadow: 0 0 3pt 2pt lightslategrey;
+}
+
+* {
+    font-family: lato;
+}
+
+.date-text {
+    font-weight: bolder;
+    color: gray;
+}
+
+.navbar {
+    /*margin-top: 20px;*/
+    /*margin-bottom: 20px;*/
+    /*background-color: lightblue;*/
+}
+
+#btn {
+    color: black;
+    /*outline: 1px solid #F25116;*/
+    box-shadow: 0 0 2pt 1pt black;
+}
+
+.highText {
+    color: #F25C05;
+}
+
+.lowText {
+    color: #230A59;
+}
+.five{
+    display: flex;
+    margin-top: 100px;
+    /*justify-content: center;*/
+}
