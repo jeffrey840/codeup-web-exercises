@@ -1,59 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--	<title>Weather Map</title>-->
+<!--	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">-->
+<!--	<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">-->
+<!--	<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>-->
+<!--	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+<!--	<link rel="stylesheet" href="css/WMP.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<nav class="navbar bg-dark">-->
+<!--	<div class="container-fluid">-->
+<!--		<span class="navbar-brand">Weather Map</span>-->
+<!--	</div>-->
+<!--</nav>-->
+<!--<hr>-->
+<!--<div class="container text-center">-->
+<!--	<div class="row" id="forecast-container">-->
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Weather Map</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.css' rel='stylesheet'/>
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="../CSS/weather_map.css">
-</head>
-
-
-
-
-<body>
-<div class="nav1">
-	<nav class="navbar">
-		<a class="navbar-brand" style="color: black; font-size: 50px; font-weight: bolder">Weather Map</a>
-		<form class="form-inline">
-			<input class="form-control mr-sm-2" id="input" type="search" placeholder="Enter by City" aria-label="Search">
-			<button id="btn" class="btn my-2 my-sm-0" type="submit">Search</button>
-		</form>
-	</nav>
-</div>
-<section class="container-fluid">
-	<div class="five">
-		<h3 style="align-content: center">Five day forecast:</h3>
-	</div>
-	<div>
-		<div class="weatherBox row" id="insertWeatherBoxes"></div>
-	</div>
-
-	<div>
-		<div class='mx-4 mt-5' id='map' style='width: auto; height: 400px;'></div>
-		<pre id="coordinates" class="coordinates"></pre>
-	</div>
-</section>
+<!--	</div>-->
+<!--	<hr>-->
+<!--	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>-->
+<!--	<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">-->
+<!--	<div class="row">-->
+<!--		<div class="col">-->
+<!--			<div id="map"></div>-->
+<!--		</div>-->
+<!--	</div>-->
 
 
 
 
-<script src="../JS/jquery/jquery-2.2.4.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js'></script>
-<script src="../JS/keys.js"></script>
-<script src="../JS/mapbox-geocoder-utils.js"></script>
-<script src="../JS/weather_map.js"></script>
-</body>
+<!--	&lt;!&ndash; Mapbox Geocoder Util Methods &ndash;&gt;-->
+<!--	<script src="./js/mapbox_geocode_utils.js"></script>-->
+<!--	<script>-->
+<!--		let OPEN_WEATHER_APPID = "5dc10ac63d24cdd5b2f7cf3680ff0433";-->
+<!--		let MAPBOX_API_KEY = "pk.eyJ1IjoiamVmZnJleTg0MCIsImEiOiJjbDlwdG9ncHIwMGR5M25xeGx3NnBvOHQxIn0.iKN24YbNH4wFHht-YqJJTw";-->
 
-</html>
+<!--		let marksArray= [];-->
+
+<!--		mapboxgl.accessToken = MAPBOX_API_KEY;-->
+<!--		var map = new mapboxgl.Map({-->
+<!--			container: 'map',-->
+<!--			style: 'mapbox://styles/mapbox/navigation-night-v1',-->
+<!--			zoom: 5,-->
+<!--			//coords are for codeup-->
+<!--			center: [-98.72984742024533, 29.43094268749772]-->
+<!--		});-->
+<!--		const mapBoxGeocoder = new MapboxGeocoder({-->
+<!--			accessToken: mapboxgl.accessToken,-->
+<!--			mapboxgl: mapboxgl,-->
+<!--			marker: false-->
+<!--		})-->
+<!--		map.addControl(-->
+<!--			mapBoxGeocoder-->
+<!--		);-->
+<!--		// "http://api.openweathermap.org/data/2.5/onecall?APPID=OPEN_WEATHER_APPID&lat=29.423017&lon=-98.48527&units=imperial"-->
+<!--		let queryParams = new URLSearchParams({-->
+<!--			APPID: OPEN_WEATHER_APPID,-->
+<!--			lat:    29.423017,-->
+<!--			lon:   -98.48527,-->
+<!--			units: "imperial"-->
+<!--		});-->
+
+
+<!--		let forecastContainer = document.querySelector("#forecast-container")-->
+<!--		// concat the query parameters onto the URL-->
+<!--		getWeatherData(queryParams)-->
+<!--		function getWeatherData(searchParams) {-->
+<!--			fetch("http://api.openweathermap.org/data/3.0/onecall?" + searchParams, {-->
+<!--					method: "GET"-->
+<!--				}-->
+<!--			).then(async function(response) {-->
+<!--				// use await to wait for the json data and then do something with it-->
+<!--				const data = await response.json();-->
+<!--				console.log('The entire response:', data);-->
+<!--				console.log('Diving in - here is current information: ', data.current);-->
+<!--				console.log('A step further - information for tomorrow: ', data.daily[1]);-->
+<!--				forecastContainer.innerHTML = ""-->
+<!--				addWeeklyCards(data)-->
+
+<!--			});-->
+<!--		}-->
+
+
+<!--		let dropPin = document.querySelector("#map")-->
+<!--		    dropPin.addEventListener("click", event => {-->
+<!--		        console.log(event)-->
+<!--		    })-->
+<!--		mapBoxGeocoder.on('result', function (results) {-->
+<!--			console.log(results)-->
+<!--			let searchBoxParams = new URLSearchParams({-->
+<!--				APPID: OPEN_WEATHER_APPID,-->
+<!--				lat:    results.result.geometry.coordinates[1],-->
+<!--				lon:   results.result.geometry.coordinates[0],-->
+<!--				units: "imperial"-->
+
+<!--			});-->
+
+<!--			let marker = new mapboxgl.Marker()-->
+<!--				.setLngLat([results.result.geometry.coordinates[0],results.result.geometry.coordinates[1]])-->
+<!--				.addTo(map)-->
+<!--			resetMarkers()-->
+<!--			marksArray.push(marker)-->
+<!--			console.log(marksArray)-->
+<!--			getWeatherData(searchBoxParams)-->
+<!--		})-->
+<!--		map.on("click", function (result) {-->
+<!--			let marker = new mapboxgl.Marker()-->
+<!--				.setLngLat([result.lngLat.lng, result.lngLat.lat])-->
+<!--				.addTo(map)-->
+<!--			resetMarkers()-->
+<!--			marksArray.push(marker)-->
+<!--			console.log(result)-->
+
+<!--			let resultObject = new URLSearchParams({-->
+<!--				APPID: OPEN_WEATHER_APPID,-->
+<!--				lat:    result.lngLat.lat,-->
+<!--				lon:   result.lngLat.lng,-->
+<!--				units: "imperial"-->
+<!--			});-->
+
+<!--			getWeatherData(resultObject)-->
+<!--		})-->
+
+<!--		function addWeeklyCards(data) {-->
+<!--			for (let i = 0; i < 5; i++) {-->
+<!--				console.log(data.daily[i])-->
+<!--				let date = new Date(data.daily[i].dt * 1000)-->
+<!--				console.log(date)-->
+<!--				forecastContainer.innerHTML = forecastContainer.innerHTML + `-->
+<!--        <div class="col">-->
+<!--        <div class="card" >-->
+<!--            <div class="card-body">-->
+<!--                <h5 class="card-title">${date.toDateString()}</h5>-->
+<!--                <img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png"></img>-->
+<!--            </div>-->
+<!--            <ul class="list-group list-group-flush">-->
+<!--                <li class="list-group-item">Description: ${data.daily[i].weather[0].description} </li>-->
+<!--                <li class="list-group-item">Day Temp: ${data.daily[i].temp.day}</li>-->
+<!--                <li class="list-group-item">Night Temp: ${data.daily[i].temp.night}</li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--        `-->
+<!--			}-->
+<!--		}-->
+<!--		function resetMarkers () {-->
+<!--			for (let i = 0; i < marksArray.length; i++) {-->
+<!--				marksArray[i].remove()-->
+<!--			}-->
+<!--		}-->
+
+
+<!--	</script>-->
+
+
+<!--</body>-->
+<!--</html>-->
