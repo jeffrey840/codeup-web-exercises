@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Weather Map</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.css' rel='stylesheet'/>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../CSS/weather_map.css">
+</head>
+
+
+
+
+<body>
+<div class="nav1">
+	<nav class="navbar">
+		<a class="navbar-brand" style="color: black; font-size: 50px; font-weight: bolder">Weather Map</a>
+		<form class="form-inline">
+			<input class="form-control mr-sm-2" id="input" type="search" placeholder="Enter by City" aria-label="Search">
+			<button id="btn" class="btn my-2 my-sm-0" type="submit">Search</button>
+		</form>
+	</nav>
+</div>
+<section class="container-fluid">
+	<div class="five">
+		<h3 style="align-content: center">Five day forecast:</h3>
+	</div>
+	<div>
+		<div class="weatherBox row" id="insertWeatherBoxes"></div>
+	</div>
+
+	<div>
+		<div class='mx-4 mt-5' id='map' style='width: auto; height: 400px;'></div>
+		<pre id="coordinates" class="coordinates"></pre>
+	</div>
+</section>
+
+
+
+
+<script src="../JS/jquery/jquery-2.2.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js'></script>
+<script src="../JS/keys.js"></script>
+<script src="../JS/mapbox-geocoder-utils.js"></script>
+<script src="../JS/weather_map.js"></script>
+</body>
+
+</html>
