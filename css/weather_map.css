@@ -1,0 +1,64 @@
+
+* {
+    Border: red 1px solid;
+}
+
+:root {
+    --mblue: #005187;
+    --white: #f1f1f7;
+    --lightblue: #0065a8;
+    --darkblue:#242a2e;
+    --yellow:#ffa900;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+}
+
+body {
+    background-color: var(--darkblue);
+}
+
+
+.card {
+    text-align: center;
+    align-content: center;
+    background-image: linear-gradient(180deg, var(--white),var(--lightblue) );
+    padding: 0;
+    border-radius: 20px;
+    box-shadow: 0 0 3pt 2pt var(--darkblue);
+}
+
+
+#map {
+    border: var(--yellow) solid 1px;
+    border-radius: 20px;
+    box-shadow: 0 0 3pt 2pt var(--darkblue);
+}
+
+#btn {
+    color: var(--yellow);
+    outline: 1px solid var(--yellow);
+    box-shadow: 0 0 2pt 1pt black;
+}
+
+.highText {
+    color: var(--darkblue);
+}
+
+.lowText {
+    color: var(--darkblue);
+}
+
+.date-text {
+    font-weight: bolder;
+    color: var(--darkblue);
+}
+
+.card-footer {
+    color:var(--darkblue);
+    padding: 0;
+    margin: 0;
+    background: none;
+}

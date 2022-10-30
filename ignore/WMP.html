@@ -1,160 +1,117 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--	<title>Weather Map</title>-->
-<!--	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">-->
-<!--	<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet">-->
-<!--	<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>-->
-<!--	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
-<!--	<link rel="stylesheet" href="css/WMP.css">-->
-<!--</head>-->
-<!--<body>-->
-<!--<nav class="navbar bg-dark">-->
-<!--	<div class="container-fluid">-->
-<!--		<span class="navbar-brand">Weather Map</span>-->
-<!--	</div>-->
-<!--</nav>-->
-<!--<hr>-->
-<!--<div class="container text-center">-->
-<!--	<div class="row" id="forecast-container">-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title></title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.css' rel='stylesheet' />
+	<link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+	<style>
+        body {
+            margin:0;
+            padding:0;
+            font: 14px/20px 'Overpass Mono';
+        }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #top-left {
+            position:absolute;
+            top: 5px;
+            left: 5px;
+        }
+        button {
+            font: inherit;
+            background: yellow;
+            border: 1px solid #000;
+        }
+	</style>
+</head>
+<body>
 
-<!--	</div>-->
-<!--	<hr>-->
-<!--	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>-->
-<!--	<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">-->
-<!--	<div class="row">-->
-<!--		<div class="col">-->
-<!--			<div id="map"></div>-->
-<!--		</div>-->
-<!--	</div>-->
+<div id='map'></div>
+<div id='top-left'>
+	<button id='switch'>switch</button>
+	<button id='restart'>restart</button>
+	steps <input id='stepsRange' type='range' min=1 max=5 value=3 />
+	duration <input id='durationRange' type='range' min=500 max=5000 value=3000 />
+</div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZnJleTg0MCIsImEiOiJjbDlwdG9ncHIwMGR5M25xeGx3NnBvOHQxIn0.iKN24YbNH4wFHht-YqJJTw';
 
+	var start = [
+		-73.99725437164307,
+		40.71934725302753
+	];
 
+	var end = [
+		-73.94097089767456,
+		40.819119488867344
+	];
 
+	var mapDiv = document.getElementById('map');
 
-<!--	&lt;!&ndash; Mapbox Geocoder Util Methods &ndash;&gt;-->
-<!--	<script src="./js/mapbox_geocode_utils.js"></script>-->
-<!--	<script>-->
-<!--		let OPEN_WEATHER_APPID = "5dc10ac63d24cdd5b2f7cf3680ff0433";-->
-<!--		let MAPBOX_API_KEY = "pk.eyJ1IjoiamVmZnJleTg0MCIsImEiOiJjbDlwdG9ncHIwMGR5M25xeGx3NnBvOHQxIn0.iKN24YbNH4wFHht-YqJJTw";-->
+	var map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/mapbox/streets-v9',
+		center: start,
+		zoom: 20
+	});
 
-<!--		let marksArray= [];-->
+	document.getElementById('restart').addEventListener('click', () => {
+		map.setCenter(start);
+		map.setZoom(20);
+	});
 
-<!--		mapboxgl.accessToken = MAPBOX_API_KEY;-->
-<!--		var map = new mapboxgl.Map({-->
-<!--			container: 'map',-->
-<!--			style: 'mapbox://styles/mapbox/navigation-night-v1',-->
-<!--			zoom: 5,-->
-<!--			//coords are for codeup-->
-<!--			center: [-98.72984742024533, 29.43094268749772]-->
-<!--		});-->
-<!--		const mapBoxGeocoder = new MapboxGeocoder({-->
-<!--			accessToken: mapboxgl.accessToken,-->
-<!--			mapboxgl: mapboxgl,-->
-<!--			marker: false-->
-<!--		})-->
-<!--		map.addControl(-->
-<!--			mapBoxGeocoder-->
-<!--		);-->
-<!--		// "http://api.openweathermap.org/data/2.5/onecall?APPID=OPEN_WEATHER_APPID&lat=29.423017&lon=-98.48527&units=imperial"-->
-<!--		let queryParams = new URLSearchParams({-->
-<!--			APPID: OPEN_WEATHER_APPID,-->
-<!--			lat:    29.423017,-->
-<!--			lon:   -98.48527,-->
-<!--			units: "imperial"-->
-<!--		});-->
+	var sample = 0;
 
+	function easingFn(steps) {
+		return n => {
+			let roundedStep = Math.floor(n * steps) / steps;
+			let remainder = (n * steps) % 1;
+			let curve = (Math.tanh((remainder - 0.5) * 10) + 1) / 2;
+			return roundedStep + (curve / (steps));
+		};
+	};
 
-<!--		let forecastContainer = document.querySelector("#forecast-container")-->
-<!--		// concat the query parameters onto the URL-->
-<!--		getWeatherData(queryParams)-->
-<!--		function getWeatherData(searchParams) {-->
-<!--			fetch("http://api.openweathermap.org/data/3.0/onecall?" + searchParams, {-->
-<!--					method: "GET"-->
-<!--				}-->
-<!--			).then(async function(response) {-->
-<!--				// use await to wait for the json data and then do something with it-->
-<!--				const data = await response.json();-->
-<!--				console.log('The entire response:', data);-->
-<!--				console.log('Diving in - here is current information: ', data.current);-->
-<!--				console.log('A step further - information for tomorrow: ', data.daily[1]);-->
-<!--				forecastContainer.innerHTML = ""-->
-<!--				addWeeklyCards(data)-->
+	var steps = 3;
+	var duration = 3000;
 
-<!--			});-->
-<!--		}-->
+	document.getElementById('stepsRange').addEventListener('change', (e) => {
+		steps = parseInt(e.target.value, 10);
+	});
 
+	document.getElementById('durationRange').addEventListener('change', (e) => {
+		duration = parseInt(e.target.value, 10);
+	});
 
-<!--		let dropPin = document.querySelector("#map")-->
-<!--		    dropPin.addEventListener("click", event => {-->
-<!--		        console.log(event)-->
-<!--		    })-->
-<!--		mapBoxGeocoder.on('result', function (results) {-->
-<!--			console.log(results)-->
-<!--			let searchBoxParams = new URLSearchParams({-->
-<!--				APPID: OPEN_WEATHER_APPID,-->
-<!--				lat:    results.result.geometry.coordinates[1],-->
-<!--				lon:   results.result.geometry.coordinates[0],-->
-<!--				units: "imperial"-->
+	let runSeries = () => {
+		mapDiv.style.transition = 'filter 3000ms ease-in-out';
+		mapDiv.style.filter = 'blur(3px) sepia(0.2)';
+		map.zoomTo(14, {
+			duration: duration,
+			easing: easingFn(steps)
+		});
 
-<!--			});-->
+		setTimeout(() => {
+			map.panTo(end, {
+				duration: duration,
+				easing: easingFn(2)
+			});
+		}, duration);
 
-<!--			let marker = new mapboxgl.Marker()-->
-<!--				.setLngLat([results.result.geometry.coordinates[0],results.result.geometry.coordinates[1]])-->
-<!--				.addTo(map)-->
-<!--			resetMarkers()-->
-<!--			marksArray.push(marker)-->
-<!--			console.log(marksArray)-->
-<!--			getWeatherData(searchBoxParams)-->
-<!--		})-->
-<!--		map.on("click", function (result) {-->
-<!--			let marker = new mapboxgl.Marker()-->
-<!--				.setLngLat([result.lngLat.lng, result.lngLat.lat])-->
-<!--				.addTo(map)-->
-<!--			resetMarkers()-->
-<!--			marksArray.push(marker)-->
-<!--			console.log(result)-->
+		setTimeout(() => {
+			mapDiv.style.filter = 'blur(0px)';
+			map.zoomTo(18, {
+				duration: duration,
+				easing: easingFn(steps)
+			});
+		}, duration * 2);
+	};
 
-<!--			let resultObject = new URLSearchParams({-->
-<!--				APPID: OPEN_WEATHER_APPID,-->
-<!--				lat:    result.lngLat.lat,-->
-<!--				lon:   result.lngLat.lng,-->
-<!--				units: "imperial"-->
-<!--			});-->
+	document.getElementById('switch')
+		.addEventListener('click', runSeries);
+</script>
 
-<!--			getWeatherData(resultObject)-->
-<!--		})-->
+</body>
+</html>
 
-<!--		function addWeeklyCards(data) {-->
-<!--			for (let i = 0; i < 5; i++) {-->
-<!--				console.log(data.daily[i])-->
-<!--				let date = new Date(data.daily[i].dt * 1000)-->
-<!--				console.log(date)-->
-<!--				forecastContainer.innerHTML = forecastContainer.innerHTML + `-->
-<!--        <div class="col">-->
-<!--        <div class="card" >-->
-<!--            <div class="card-body">-->
-<!--                <h5 class="card-title">${date.toDateString()}</h5>-->
-<!--                <img src="http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png"></img>-->
-<!--            </div>-->
-<!--            <ul class="list-group list-group-flush">-->
-<!--                <li class="list-group-item">Description: ${data.daily[i].weather[0].description} </li>-->
-<!--                <li class="list-group-item">Day Temp: ${data.daily[i].temp.day}</li>-->
-<!--                <li class="list-group-item">Night Temp: ${data.daily[i].temp.night}</li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--        `-->
-<!--			}-->
-<!--		}-->
-<!--		function resetMarkers () {-->
-<!--			for (let i = 0; i < marksArray.length; i++) {-->
-<!--				marksArray[i].remove()-->
-<!--			}-->
-<!--		}-->
-
-
-<!--	</script>-->
-
-
-<!--</body>-->
-<!--</html>-->
