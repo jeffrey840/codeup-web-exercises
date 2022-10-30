@@ -19,7 +19,7 @@ function getData() {
 		lon: longitude,
 		units: "imperial",
 		exclude: "minutely, hourly",
-		zoom: 9
+		zoom: 14
 	}).done(function (data) {
 		console.log(data)
 		handleResponse(data)
@@ -166,15 +166,4 @@ $(".btn").click(function (e) {
 // 		})
 //
 //
-// function getData() {
-// 	$.get("https://api.openweathermap.org/data/3.0/onecall", {
-// 		APPID: OPEN_WEATHER_APPID,
-// 		lat: latitude,
-// 		lon: longitude,
-// 		units: "imperial",
-// 		exclude: "minutely, hourly"
-// 	}).done(function (data) {
-// 		handleResponse(data)
-// 	});
-// }
 
