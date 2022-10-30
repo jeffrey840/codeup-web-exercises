@@ -38,7 +38,11 @@ function handleResponse(data) {
 		cardColor(iconCode);
 		let tempHigh = Math.round(days[i].temp.max);
 		let tempLow = Math.round(days[i].temp.min);
+		let hum = days[i].humidity;
+		let wnd = days[i].wind_speed;
+		let press = days[i].pressure;
 		let description = days[i].weather[0].description;
+
 // Embedding into the div.card element using string method:
 		let itemHtml = "<div style='align-items: center; margin-bottom: 5px; margin-top: 20px' class='card col-2' style='width: 15rem'>"
 		itemHtml += '<span class="date-text">' + date + '</span>';
@@ -46,6 +50,9 @@ function handleResponse(data) {
 		itemHtml += '<h5 class="highText">' + 'High ' + tempHigh + '</h5>';
 		itemHtml += '<h5 class="lowText">' + 'Low ' + tempLow + '</h5>';
 		itemHtml += '<p class="card-footer my-3">' + description + '</p>';
+		itemHtml += '<p class="card-footer my-1">' + 'humidity: '  + hum + '</p>';
+		itemHtml += '<p class="card-footer my-1">' + 'wind: '  + wnd + '</p>';
+		itemHtml += '<p class="card-footer my-1">' + 'pressure: '  + press + '</p>';
 		itemHtml += '</div>';
 		html += itemHtml;
 	}
