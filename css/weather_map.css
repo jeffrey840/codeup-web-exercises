@@ -1,8 +1,3 @@
-
-/** {*/
-/*    Border: red 1px solid;*/
-/*}*/
-
 :root {
     --mblue: #005187;
     --white: #f1f1f7;
@@ -34,13 +29,13 @@ body {
 #map {
     border: var(--yellow) solid 1px;
     border-radius: 20px;
-    box-shadow: 0 0 3pt 2pt var(--darkblue);
+    box-shadow: 0 0 3pt 2pt var(--yellow);
 }
 
 #btn {
     color: var(--yellow);
     outline: 1px solid var(--yellow);
-    box-shadow: 0 0 2pt 1pt black;
+    box-shadow: 0 0 2px 1px black;
 }
 
 .highText {
