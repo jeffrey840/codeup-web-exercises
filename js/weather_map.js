@@ -157,13 +157,4 @@ $(".btn").click(function (e) {
 //
 //
 //
-// 	$("#searchBtn").click(function (e) {
-// 		e.preventDefault();
-// 		console.log($("#searchBox").val());
-//
-// 		let inputStr = $("#searchBox").val();
-//
-// 		})
-//
-//
 
