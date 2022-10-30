@@ -1,3 +1,5 @@
+
+
 // setting up global variables to call the data from Weather Map
 let longitude = -96.7969
 let latitude = 32.7763
