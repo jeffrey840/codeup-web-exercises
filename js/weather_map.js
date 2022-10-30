@@ -129,32 +129,6 @@ $(".btn").click(function (e) {
 
 })
 
-// 	//js script
-//
 
-////
-//
-// 	// //displays map on page-start
-// 	// mapboxgl.accessToken = MAPBOX_API_KEY;
-// 	// const map = new mapboxgl.Map({
-// 	// 	container: 'map', // container ID
-// 	// 	style: 'mapbox://styles/mapbox/streets-v11', // style URL
-// 	// 	center: [-98.48527, 29.423017], // starting position [lng, lat]
-// 	// 	zoom: 9 // starting zoom
-// 	// });
-// 	// //displays map on page-end
-//
-// 	// //displays-marker
-// 	// const marker = new mapboxgl.Marker({
-// 	// 	color: "blue",
-// 	// 	draggable: true
-// 	// }).setLngLat([-98.48527, 29.423017])
-// 	// 	.addTo(map);
-// 	// //
-//
-// 	//refer to line 252 to get information of the marker
-//
-//
-//
-//
+
 
