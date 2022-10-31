@@ -60,7 +60,9 @@ function response(data) {
 	mapboxgl.accessToken = MAPBOX_API_KEY
 	const map = new mapboxgl.Map({
 		container: 'map', // container ID
-		style: 'mapbox://styles/mapbox/dark-v10', // style URL
+		// style: 'mapbox://styles/mapbox/dark-v10', // style URL
+		//gta style for gta
+		style: 'mapbox://styles/adoucett/cjf5k84bp0p7t2rmiwvwikhyn',
 		center: [longitude, latitude], // starting position [lng, lat]
 		zoom: 10 // starting zoom
 	});
