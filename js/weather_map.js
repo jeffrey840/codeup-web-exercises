@@ -113,6 +113,13 @@ $(".btn").click(function (e) {
 
 })
 
-
+//refactor todo's:
+//make the map take up 90% of the height.
+//make the header display the current city.
+//add a dropdown bar to display the weather.
+//make the dropdown bar toggle with a button.
+//add an option to change the marker color.
+//make the searchbar go inside the mapbox.
+//make the zoom transition like in game.
 
 
