@@ -1,3 +1,4 @@
+
 const users = [
 	{
 		id: 1,
@@ -67,10 +68,9 @@ console.log(typeof (nameStr));
 
 //---------------------practise follow along--------------------//
 console.log("--------FOLLOW ALONG----------");
-// 	// ~ Filter ~
-// 	​
-let myFavNums = [7, 222, 21, 13];
 
+// 	// ~ Filter ~
+let myFavNums = [7, 222, 21, 13];
 // let favEvenNum = myFavNums.filter(function(ele){
 // 	return ele % 2 ===0;
 // })
@@ -92,7 +92,6 @@ let jeffFavNum = JeffNum.filter(function (ele) {
 console.log(jeffFavNum);
 
 
-// 	​
 let citiesTraveled = [
 	{
 		name: "Houston",
@@ -150,10 +149,9 @@ console.log('no-us');
 console.log(nonUs);
 
 // 	//TODO: Can you filter that array of objects in an interesting way like I did?
-// 	​
-// ​
+
 // 	// ~ Map ~
-// 	​
+
 let nums = [2, 4, 6, 8]
 
 let numPlusOne = nums.map(function(element) {
@@ -169,7 +167,7 @@ console.log(numPlusOne);
 let numsTimeTen = nums.map((e) => e * 10)
 console.log(numsTimeTen);
 
-// 	​
+
 let people = [
 	{firstName: "Kenny", lastName: "Howell"},
 	{firstName: "Lola", lastName: "Castillo"},
@@ -186,15 +184,13 @@ let namesConcat = people.map(function(element) {
 
 console.log(namesConcat);
 
-//
-// ​
 // 	// ~ Reduce ~
-// 	​
+
+// 	//TODO: Create your own array of figures to "reduce" to a single value - sum up a series of numbers like I did, or you can feel free to take your practice in a different direction!
+
 let yearSales = [8, 10, 12, 13, 10, 6, 15, 10, 9, 16]
 
 let salesToDate = yearSales.reduce(function( total,element ) {
 	console.log(`the total is currently ${total} and my current element value is ${element}`);;
 	return total + element
 })
-
-// 	//TODO: Create your own array of figures to "reduce" to a single value - sum up a series of numbers like I did, or you can feel free to take your practice in a different direction!
