@@ -19,9 +19,7 @@ getLatestCommit("jeffrey840");
 // before running, then resolve returns seconds
 const wait = seconds => {
 	return new Promise((resolve) => {
-		setTimeout(() => {
-			resolve(seconds);
-		}, seconds);
+		setTimeout(() => {resolve(seconds);}, seconds);
 	});
 }
 
