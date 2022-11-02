@@ -22,7 +22,6 @@ const wait = seconds => {
 		setTimeout(() => {resolve(seconds);}, seconds);
 	});
 }
-
 // Function call with an argument of 3 passed to the seconds parameter
 wait(3000).then((response) => {
 	const seconds = response / 1000;
