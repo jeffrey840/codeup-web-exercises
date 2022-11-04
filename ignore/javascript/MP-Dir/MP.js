@@ -1,146 +1,232 @@
-// import {mapAddMovie, mapPopulateMovies, mapPopulateActiveMovie, mapEditMovie, mapMovieInfo} from "./maps.js";
-// import {OMDB_API_KEY} from "./keys.js";
-// import {movieIdURL, movieTitleURL, fetchSettings} from "./constants.js";
+
 //
-// const glitchURL = "https://exclusive-radical-peak.glitch.me/movies/";
+// const log = document.querySelector('.event-log-contents');
+// const reload = document.querySelector('#reload');
 //
+// reload.addEventListener('click', () => {
+// 	log.textContent ='';
+// 	window.setTimeout(() => {
+// 		window.location.reload(true);
+// 	}, 200);
+// });
 //
-// function loadPage() {
-// 	document.querySelector(".carousel-inner").innerHTML = "LOADING...";
-// 	fetch(glitchURL, fetchSettings)
-// 		.then(res => res.json())
-// 		.then(res => {
-// 			document.querySelector(".carousel-inner").innerHTML = "";
-// 			res.forEach((movie) => {
-// 				if (res[0] === movie) {
-// 					movie = mapPopulateActiveMovie(movie);
-// 					$(".carousel-inner").append(movie);
-// 				} else {
-// 					movie = mapPopulateMovies(movie);
-// 					$(".carousel-inner").append(movie);
-// 				}
-// 			})
+// window.addEventListener('load', (event) => {
+// 	log.textContent = log.textContent + 'load\n';
+// });
+//
+// const url = 'https://vivid-flawless-almandine.glitch.me/movies'
+// fetch(url)
+// 	.then(res => res.json())
+// 	.then(data => {
+// 		console.log(data)
+// 		// const example = data;
+// 		// console.log(example);
+// 		data.forEach(post => {
+// 			if (typeof (post.id) === 'number' || typeof (post.id) === 'string') {
+// 				console.log(post.title);
+//
+// 				// function hasTitle(){
+// 				//     if(post.title !== 'undefined'){
+// 				$('#movies').append(
+// 					`<div class="container">` +
+// 					`<div class="row" style="outline: auto; padding-bottom: 10px; padding-top: 10px">` +
+// 					`<div class="col-4">` +
+// 					`<img src="${post.poster}" style="height:300px; width:200px;">` +
+// 					`</div>` +
+//
+// 					`<div class="col-8">` +
+//
+// 					`<h3>${post.title}</h3>` +
+// 					`<ul style="list-style: none">` +
+// 					`<li>Genre:    ${post.genre}</li>` +
+// 					`<li>Rating:  ${post.rating}</li>` +
+// 					`<li>Director:  ${post.director}</li>` +
+// 					`<li>Plot:  ${post.plot}</li>` +
+// 					`</ul>`+
+// 					`<button id="${post.id}" >delete movie</button>` +
+// 					`</div>` +
+// 					`</div>` +
+//
+// 					`</div>`
+//
+// 				)
+// 			}
+//
 // 		})
-// 		.then(() => {
-// 			// Function found on codeply.com, provides the functionality of the carousel buttons and autoscroll
-// 			let items = document.querySelectorAll('.carousel .carousel-item');
 //
-// 			items.forEach((el) => {
-// 				const minPerSlide = 4;
-// 				let next = el.nextElementSibling;
-// 				for (let i = 1; i < minPerSlide; i++) {
-// 					if (!next) {
-// 						// wrap carousel by using first child
-// 						next = items[0]
-// 					}
-// 					let cloneChild = next.cloneNode(true);
-// 					el.appendChild(cloneChild.children[0]);
-// 					next = next.nextElementSibling;
-// 				}
-// 			})
-// 		})
-// 		// Allows images to be used as clickable buttons, retrieve movie information
-// 		.then(() => $(".slide-img").on("click", (e) => {
-// 				let currentMovie = e.target.id;
-// 				let settings = {
-// 					method: "GET",
-// 				}
-// 				// Collects the stored movie ID from our site
-// 				fetch(`${glitchURL}`, settings)
-// 					.then(res => res.json())
-// 					.then(res => {
-// 						res.forEach(movie => {
-// 							if (currentMovie === movie.imdbID) {
-// 								currentMovie = movie
-// 							}
-// 						})
+//
+// 		//DELETE BUTTON
+//
+// 		console.log(data.length)
+// 		for (let i = 0; i < data.length; i++) {
+// 			console.log(data.length)
+// 			var test = document.getElementById(`${data[i].id}`);
+// 			test.onclick = function deleteMovie(e) {
+// 				// e.preventDefault();
+// 				console.log(data[i].id);
+// 				fetch(url + "/" + `${data[i].id}`, {
+// 					method: 'DELETE'
+// 				}).then(() => {
+// 					console.log('removed');
+// 					window.location.reload(true);
+// 				})
+// 					.catch(err => {
+// 						console.error(err);
 // 					})
-// 					.then(() => {
-// 							// Outputs the selected movie information in the form of a modal
-// 							$("#modal-container").html(mapMovieInfo(currentMovie));
-// 							// Closes the information modal for the selected movie
-// 							$(".info-close").on("click", () => {
-// 								$("#modal-container").html("");
-// 							});
-// 							// Deletes the selected movie from the site
-// 							$(".info-delete").on("click", () => {
-// 								$("#modal-container").html("");
-// 								let settings = {
-// 									method: "DELETE",
-// 									headers: {
-// 										"Content-Type": "application/json"
-// 									}
-// 								}
-// 								fetch(glitchURL + currentMovie.id, settings)
-// 									.then((res) => loadPage());
-// 							});
-// 							//  Allows the editing of the selected movie's information
-// 							$(".info-edit").on("click", () => {
-// 								$("#modal-container").html(mapEditMovie(currentMovie));
-// 								// Cancels any edits to the selected movie
-// 								$(".edit-cancel").on("click", () => {
-// 									$("#modal-container").html("");
-// 								});
-// 								// Saves edits to the selected movie
-// 								$(".edit-save").on("click", () => {
-// 									updateMovieInfo(currentMovie);
-// 									$("#modal-container").html("");
-// 								});
-// 							});
-// 						}
-// 					)
-// 			})
-// 		)
-// }
 //
-// loadPage();
+// 			}
 //
-// // Search for a movie/add a movie
-// document.getElementById("submit").addEventListener("click", () => {
-// 	let title = $("#search-bar").val();
-// 	$("#search-bar").val("");
-// 	fetch(`${movieTitleURL}${title}&apikey=${OMDB_API_KEY}`)
-// 		.then(res =>
-// 			res.json())
-// 		.then(res => {
-// 			document.querySelector(".carousel-inner").innerHTML = mapAddMovie(res)
-// 			$("#add-button").on("click", () => {
-// 				let settings = {
-// 					...fetchSettings,
-// 					method: "POST",
-// 					body: JSON.stringify(res)
+// 			//         // })
+//
+//
+// 			//EDIT BUTTON
+//
+// 			$('#edit').click((e) => {
+// 				// e.preventDefault();
+//
+// 				var editMovie = {
+// 					currentTitle: $("#oldTitle").val(),
+// 					title: $("#editTitle").val(),
+// 					genre: $("#editGenre").val(),
+// 					rating: $("#editRating").val(),
+// 					director: $("#editDirector").val(),
+// 					plot: $("#editPlot").val(),
+// 					poster: $("#editImg").val()
 // 				}
-// 				fetch(glitchURL, settings)
-// 					.then(() => loadPage())
-// 			});
-// 		});
-// });
+// 				var titleEntered = editMovie.currentTitle
+// 				// console.log(editMovie.title);
+// 				//     console.log("You can edit the movie")
 //
-// // Update movie info
-// function updateMovieInfo(input) {
-// 	let settings = {
-// 		method: "PATCH",
-// 		headers: {
-// 			"Content-Type": "application/json"
-// 		},
-// 		body: JSON.stringify({
-// 			"Title": $("#movie-title").val(),
-// 			"Plot": $("#movie-plot").val(),
-// 			"Actors": $("#movie-actors").val(),
-// 			"Director": $("#movie-director").val(),
-// 			"Genre": $("#movie-genre").val(),
-// 		})
+// 				if (titleEntered.toLowerCase() === (data[i].title).toLowerCase()) {
+// 					console.log("The same title")
+// 					console.log(data[i].id)
+//
+// 					// // const url = 'https://codeup-json-server.glitch.me/movies';
+// 					let options = {
+// 						method: 'PUT',
+// 						headers: {
+// 							'Content-Type': 'application/json',
+// 						},
+// 						body: JSON.stringify(editMovie),
+// 					};
+// 					fetch(url + "/" + `${data[i].id}`, options)
+// 						.then((response) => {
+// 							// console.log(response)
+// 							console.log('New rating is: ' + editMovie.rating);
+// 							window.location.reload(true)
+// 						})
+// 						// .then(response => console.log(response)) /* review was created successfully */
+// 						.catch(error => console.error(error)); /* handle errors */
+//
+// 				}
+// 			})
+// 			console.log(data)
+//
+// 			// TRIED FOR EDIT BUTTON
+//
+// 			// for (let i = 0; i < data.length; i++) {
+// 			//     console.log(data.length)
+// 			//     var edit = document.getElementById(`${data[i].id}`);
+// 			//     edit.onclick = function editMovie(e) {
+// 			//         // e.preventDefault();
+// 			//         console.log(data[i].id);
+// 			//         fetch(url + "/" + `${data[i].id}`, {
+// 			//             method: 'PUT'
+// 			//         }).then(() => {
+// 			//             console.log('edited');
+// 			//             window.location.reload(true)
+// 			//         })
+// 			//             .catch(err => {
+// 			//                 console.error(err)
+// 			//             })
+// 			//
+// 			//     }
+// 			//     //         // })
+// 			// }
+// 		}});
+//
+//
+// $('#add').click((e) => {
+// 	e.preventDefault();
+//
+// 	var addMovie = {
+// 		title: $("#title").val(),
+// 		genre: $("#genre").val(),
+// 		rating: $("#rating").val(),
+// 		director: $("#director").val(),
+// 		plot: $("#plot").val(),
+// 		poster: $("#addImg").val()
 // 	}
-// 	fetch(glitchURL + input.id, settings)
-// 		.then(res => res.json())
-// 		.then(json => console.log(json))
-// 	loadPage();
-// }
+// 	// const url = 'https://codeup-json-server.glitch.me/movies';
+// 	let options = {
+// 		method: 'POST',
+// 		headers: {
+// 			'Content-Type': 'application/json',
+// 		},
+// 		body: JSON.stringify(addMovie),
+// 	};
+// 	fetch(url, options)
+// 		.then((response) => {
+// 			console.log(response)
+// 			// console.log('removed');
+// 			window.location.reload(true)
+// 		})
+// 		// .then(response => console.log(response)) /* review was created successfully */
+// 		.catch(error => console.error(error)); /* handle errors */
 //
-// // Clicking the logo reloads the movies' html elements
-// $("#logo-img").on("click", () => {
-// 	loadPage();
-// });
+// })
 //
 //
+// // let deleteOptions = {
+// //     method: 'DELETE',
+// //     headers: {
+// //         'Content-Type': 'application/json',
+// //     }
+// // };
 //
+//
+// // $("#delete").click(function() {
+// // //DELETE request
+// //     fetch(`${url}/${inputVal}`, deleteOptions)
+// //         .then();
+// // });
+//
+// // $('#delete').click((e) => {
+// //     e.preventDefault();
+//
+// // let options = {
+// //     method: 'DELETE',
+// //     headers: {
+// //         'Content-Type': 'application/json',
+// //     },
+// //     body: JSON.stringify(),
+// // };
+// // fetch(url, options)
+// //     .then(response => console.log(response)) /* review was created successfully */
+// //     .catch(error => console.error(error)); /* handle errors */
+// // })
+//
+//
+// // $('button').click($(this) => console.log($(this).siblings))
+//
+// // const xhr = new XMLHttpRequest()
+// // //open a get request with the remote server URL
+// // xhr.open("GET", "https://codeup-json-server.glitch.me/movies")
+// //
+// // //send the Http request
+// // xhr.send()
+// //
+// // //EVENT HANDLERS
+// //
+// // //triggered when the response is completed
+// // xhr.onload = function() {
+// //     if (xhr.status === 200) {
+// //         //parse JSON datax`x
+// //         data = JSON.parse(xhr.responseText)
+// //         console.log(data)
+// //         console.log(typeof(data.title))
+// //         console.log(data.rating)
+// //     } else if (xhr.status === 404) {
+// //         console.log("No records found")
+// //     }
+// // }
