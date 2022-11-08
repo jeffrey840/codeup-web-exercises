@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Worksheet</title>
+</head>
+<body>
+
+<h1 id="hoverChange">Racecar</h1>
+
+<br>
+<br>
+
+<p id="paragraphLorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aspernatur corporis cupiditate et explicabo, facilis harum illo inventore laboriosam molestiae nemo, nisi nobis nulla provident quia repellat rerum veritatis voluptatibus?</p>
+
+<br>
+<br>
+
+<p id="colorMe">Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr zimbra, mobly napster hipmunk prezi chartly bitly spock. Loopt twones meebo hipmunk, fleck xobni. Convore bebo rovio vimeo zanga handango blekko koofers, loopt twitter imvu flickr kaboodle chegg. Zillow lala mzinga, sifteo. Voki heekya sococo geni oovoo disqus, empressr doostang lijit.</p>
+<br>
+
+<input type="text" id="colorInput"><button id="getInput">Color my paragraph!</button>
+
+</body>
+
+<script
+        src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
+
+<script>
+  //TODO: When the h1#hoverChange element has a user HOVER over it, change the String "Racecar" to "Tacocat" [mouseIn] and back to "Racecar" [mouseOut]
+
+  $("h1").hover(function(){
+    $(this).text('Racecar');
+  }, function(){
+      $(this).text('Tacocar');
+  });
+
+  //TODO: When the p#paragraphLorem is clicked on, change the font's weight to BOLD and add a border that is: 1px; unbroken; and purple in color
+  // [bonus: How could we have it return to normal on a 2nd click from our user?]
+
+  let Style=false;
+  $('#paragraphLorem').click(function(){
+    if(Style)
+    {
+      $(this).css('font-weight','bold').css("border", "2px solid purple")
+      Style=false;
+    }
+    else
+    {
+      $(this).css('font-weight','normal').css("border", "0px solid purple")
+      Style=true;
+    }
+  });
+
+  //TODO: My p#colorMe element is looking a little bland - can you set it up where a user can type a color into input#colorInput, click button#getInput, and the color they typed in become the background of my p#colorMe element? HINT: Presume our users are well-behaved and we ALWAYS get a proper CSS color as input
+
+
+  $(document).ready(function(){ // <-- use correct syntax
+    $('#getInput').onclick(function(){ // <-- use change event
+      $('#colorMe').css('background-color', $('colorInput').val());
+    });
+  })
+
+
+  //TODO Bonus: Remember when you helped me defuse the BOM? I have a different mission for you today: can you help me set up some JavaScript that, 10 seconds after our page loads, will replace all of the HTML on the page with text that says: "BOOM"
+
+
+</script>
+</html>
