@@ -56,15 +56,29 @@
 
   //TODO: My p#colorMe element is looking a little bland - can you set it up where a user can type a color into input#colorInput, click button#getInput, and the color they typed in become the background of my p#colorMe element? HINT: Presume our users are well-behaved and we ALWAYS get a proper CSS color as input
 
-
-  $(document).ready(function(){ // <-- use correct syntax
-    $('#getInput').onclick(function(){ // <-- use change event
-      $('#colorMe').css('background-color', $('colorInput').val());
-    });
+  $('#getInput').click(function (){
+      $('#colorMe').css('background-color', $('#colorInput').val())
   })
+
+  // let tap = document.getElementById('getInput');
+  // let col = document.getElementById('colorMe');
+  // tap.addEventListener('click', function(){
+  //   let imp = document.getElementById('colorInput').value;
+  //   col.style.backgroundColor = imp
+  // })
 
 
   //TODO Bonus: Remember when you helped me defuse the BOM? I have a different mission for you today: can you help me set up some JavaScript that, 10 seconds after our page loads, will replace all of the HTML on the page with text that says: "BOOM"
+
+  // setTimeout(function (){
+  //     $('body').html('BOOOOOOOMMMMM')
+  // }, 10000)
+
+  setTimeout(function (){
+    document.body.innerHTML = 'BOOOOOOMMMMM'
+  }, 5000)
+
+
 
 
 </script>
